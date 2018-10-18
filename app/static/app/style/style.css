@@ -1,0 +1,38 @@
+body{
+	font-size: 17px;
+	
+}
+
+
+.logo{
+	width: 130px;
+	margin-top:-3px;
+	margin-left: 100px;
+}
+.logo:hover{
+	opacity: 0.9;
+}
+
+
+
+li > a:hover{
+
+	border-bottom:solid;	 
+	border-bottom-color: #2374c7;
+	
+}
+
+
+
+.navbar-nav{
+	margin-right: 100px;
+	
+}
+
+.dropdown {
+	margin-top: 7px;
+}
+
+#projetos{
+	width: 200px;
+}
