@@ -1,150 +1,136 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     {% load static %}
 
-    <meta charset="UTF-8"/>
+    <meta charset="UTF-8" />
     <meta http-equiv="Content-Type" content="text/html">
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css"
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 
     <link rel="stylesheet" type="text/css" href="/style/style.css">
-    <link rel="stylesheet" type="text/css"
-          href="{% static '/app//style/usuarioLogadoStylecss.css'%}">
-    <link rel="stylesheet" type="text/css"
-          href="{% static '/app//style/style.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app//style/usuarioLogadoStylecss.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app//style/style.css'%}">
     <title>Insert title here</title>
 </head>
+
 <body>
-<div>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
-        <h1 class="logo float-left">
+    <div>
+        <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
+            <h1 class="logo float-left">
 
-            <img src="{% static '/app/imgs/logo1.jpg'%}" class="logo">
+                <img src="{% static '/app/imgs/logo1.jpg'%}" class="logo">
 
-        </h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-                aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end"
-             id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <strong><a class="nav-item nav-link active"
-                           href="/projeto/novo">+ Adicionar Projeto</a></strong> <a
-                    class="nav-item nav-link" href="#">Perfil</a> <a
-                    class="nav-item nav-link" href="/home">Sair</a>
-            </div>
-        </div>
-    </nav>
-
-
-</div>
-
-<!-- content -->
-<div class="container-fluid text-center">
-    <div class="row content">
-        <ul class="sidebar navbar-nav bg-light">
-            <li class="nav-item dropdown"><a
-                    class="nav-link dropdown-toggle" href="#" id="pagesDropdown"
-                    role="button" data-toggle="dropdown"> <i
-                    class="fas fa-fw fa-folder"></i> <span>Lista de Projetos</span>
-            </a>
-                <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                    <h6 class="dropdown-header">Projetos:</h6>
-
-                    {% for projeto in projetos %}
-                    <a class="dropdown-item" href="#">{{projeto.nome}}</a>
-
-                    {% endfor %}
+            </h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <strong><a class="nav-item nav-link active" href="/projeto/novo">+ Adicionar Projeto</a></strong>
+                    <a class="nav-item nav-link" href="#">Perfil</a> <a class="nav-item nav-link" href="/home">Sair</a>
                 </div>
-            </li>
-        </ul>
-        <div class="col-sm-8 text-left">
-            <div id="app">
-                <br>
-                <button href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal"
-                        ><i class="fas fa-plus"></i>
-                </button>
-                <br>
-                <br>
-                <h4>Tarefas</h4>
-
-                <table class=" table table-hover" style="width:100%">
-                    <tr>
-                        <th>Nome</th>
-                        <th>Descrição</th>
-                        <th>Data de Criação</th>
-                        <th>Vencimento</th>
-
-                    </tr>
-                    {% for tarefa in tarefas %}
-                    {% if tarefa.status == Concluido %}
-                    <tr>
-
-                        <td>{{tarefa.nome}}</td>
-                        <td>{{tarefa.descricao}}</td>
-                        <td>{{tarefa.data_criacao}}</td>
-                        <td>{{tarefa.data_vencimento}}</td>
-                        <td><a class="btn btn-success btn-sm" href="/tarefa/concluido/{{tarefa.id}}"><i
-                                class="far fa-check-circle"></i></a></td>
-                        <td><a class="btn btn-danger btn-sm" href="/tarefa/excluir/{{tarefa.id}}"><i
-                                class="far fa-trash-alt"></i></a></td>
-                        <td><a class="btn btn-warning btn-sm" href="/tarefa/editar/{{tarefa.id}}"><i
-                                class="fas fa-edit"></i></a></td>
+            </div>
+        </nav>
 
 
-                    </tr>
-                    {% endif %}
-                    {% endfor %}
-                </table>
+    </div>
+
+    <!-- content -->
+    <div class="container-fluid text-center">
+        <div class="row content">
+            <ul class="sidebar navbar-nav bg-light">
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button"
+                        data-toggle="dropdown"> <i class="fas fa-fw fa-folder"></i> <span>Lista de Projetos</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="pagesDropdown">
+                        <h6 class="dropdown-header">Projetos:</h6>
+
+                        {% for projeto in projetos %}
+                        <a class="dropdown-item" href="#">{{projeto.nome}}</a>
+
+                        {% endfor %}
+                    </div>
+                </li>
+            </ul>
+            <div class="col-sm-8 text-left">
+                <div id="app">
+                    <br>
+                    <button href="#" class="btn btn-primary" data-toggle="modal" data-target="#myModal"><i class="fas fa-plus"></i>
+                    </button>
+                    <br>
+                    <br>
+                    <h4>Tarefas</h4>
+
+                    <table class=" table table-hover" style="width:100%">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Descrição</th>
+                            <th>Data de Criação</th>
+                            <th>Vencimento</th>
+
+                        </tr>
+                        {% for tarefa in tarefas %}
+                        {% if tarefa.status == Concluido %}
+                        <tr>
+
+                            <td>{{tarefa.nome}}</td>
+                            <td>{{tarefa.descricao}}</td>
+                            <td>{{tarefa.data_criacao}}</td>
+                            <td>{{tarefa.data_vencimento}}</td>
+                            <td><a class="btn btn-success btn-sm" href="/tarefa/concluido/{{tarefa.id}}"><i class="far fa-check-circle"></i></a></td>
+                            <td><a class="btn btn-danger btn-sm" href="/tarefa/excluir/{{tarefa.id}}"><i class="far fa-trash-alt"></i></a></td>
+                            <td><a class="btn btn-warning btn-sm" href="/tarefa/editar/{{tarefa.id}}"><i class="fas fa-edit"></i></a></td>
 
 
+                        </tr>
+                        {% endif %}
+                        {% endfor %}
+                    </table>
+
+
+                </div>
             </div>
         </div>
     </div>
-</div>
 
 
-<!-- The Modal -->
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+    <!-- The Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <h4 class="modal-title">Adicionar Tarefa</h4>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h4 class="modal-title">Adicionar Tarefa</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+
+                <!-- Modal body -->
+                <form method="post">
+                    <div class="modal-body">
+
+                        {% csrf_token %}
+                        {{formTarefa.as_p}}
+
+
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-success">Salvar</button>
+                        <a href="/usuario/logado" class="btn btn-danger">Cancelar</a>
+                    </div>
+                </form>
             </div>
-
-            <!-- Modal body -->
-            <form method="post">
-                <div class="modal-body">
-
-                    {% csrf_token %}
-                    {{formTarefa.as_p}}
-
-
-                </div>
-
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" >Salvar</button>
-                    <a href="/usuario/logado" class="btn btn-danger"">Cancelar</a>
-                </div>
-            </form>
         </div>
     </div>
-</div>
 
-<script
-        src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-        src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-<script
-        src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
 
 </html>
