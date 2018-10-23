@@ -2,7 +2,9 @@ body{
 	font-size: 17px;
 	
 }
-
+#descricao{
+    max-width: 200px; overflow: hidden; text-overflow: ellipsis;
+}
 
 .logo{
 	width: 130px;
@@ -11,6 +13,10 @@ body{
 }
 .logo:hover{
 	opacity: 0.9;
+}
+
+textarea {
+  resize:none;
 }
 
 

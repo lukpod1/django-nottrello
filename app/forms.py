@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Usuario, Tarefa
+from .models import Usuario, Tarefa, Projeto
 
 
 class CadastroForm(forms.ModelForm):
@@ -8,7 +8,15 @@ class CadastroForm(forms.ModelForm):
         model = Usuario
         fields = ('nome', 'email', 'senha')
         widgets = {
-            'senha': forms.PasswordInput(),
+            'nome': forms.TextInput(
+                attrs={'class': 'form-control', 'required': 'true',
+                       'autofocus': 'true'}),
+            'email': forms.EmailInput(
+                attrs={'class': 'form-control', 'required': 'true',
+                       'autofocus': 'true'}),
+
+            'senha': forms.PasswordInput(
+                attrs={'class': 'form-control', 'id': 'inputPassword', 'required': 'true'}),
         }
 
 
@@ -17,14 +25,30 @@ class EntrarForm(forms.ModelForm):
         model = Usuario
         fields = ('nome', 'senha')
         widgets = {
-            'senha': forms.PasswordInput(),
+            'nome': forms.TextInput(
+                attrs={'class': 'form-control', 'required': 'true', 'autofocus': 'true'}),
+            'senha': forms.PasswordInput(
+                attrs={'class': 'form-control', 'required': 'true'}),
         }
 
-class TarefaForm(forms.ModelForm, forms.Form):
+
+class TarefaForm(forms.ModelForm):
     class Meta:
         model = Tarefa
-        fields = {'nome', 'descricao', 'data_vencimento'}
+        fields = {'nome', 'descricao', 'data_vencimento','projeto'}
         widgets = {
-            'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA'}), 'descricao': forms.Textarea(),
+            'nome': forms.TextInput(attrs={'class': 'form-control'}),
+            'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA', 'class': 'form-control'}),
+            'descricao': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
+            'projeto': forms.Select(attrs={'class': 'form-control'}),
 
+        }
+
+class ProjetoForm(forms.ModelForm):
+    class Meta:
+        model = Projeto
+        fields = {'nome', 'data_vencimento'}
+        widgets = {
+            'nome': forms.TextInput(attrs={'class': 'form-control'}),
+            'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA', 'class': 'form-control'}),
         }

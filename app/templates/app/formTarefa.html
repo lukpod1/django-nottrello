@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+    <link rel="stylesheet" type="text/css" href="/style/style.css">
+    <link rel="stylesheet" type="text/css" href="{% static '/app//style/usuarioLogadoStylecss.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app//style/style.css'%}">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <div>
+        <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
+            <h1 class="logo float-left">
+
+                <img src="{% static '/app/imgs/logo1.jpg'%}" class="logo">
+
+            </h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+                <div class="navbar-nav">                    
+                    <a class="nav-item nav-link" href="/usuario/entrar">Sair</a>
+                </div>
+            </div>
+        </nav>
+
+
+    </div>
+
+    <!-- content -->
+    <div class="container-fluid text-center">
+
+
+        <div class="col-lg-10 col-xl-9 mx-auto text-left">
+            <div id="app">
+                <h3>{{projeto.nome}}</h3>
+                <h4>Tarefa</h4>
+                <form method="post">
+                    <div class="form-group">
+                        {% csrf_token %}
+                        {{ formTarefa.as_p }}
+
+                    </div>
+
+
+                    <button type="submit" class="btn btn-success" style="margin-left: 20px;">Salvar</button>
+                    <a href="/usuario/logado/1" class="btn btn-danger">Cancelar</a>
+
+
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>
