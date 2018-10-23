@@ -44,6 +44,11 @@ def usuarioLogado(request, pk):
 
     return render(request, 'app/usuarioLogado.html', data)
 
+def listarTarefaProjeto(request, pk):
+    tarefas = Tarefa.objects.filter(projeto=pk)
+    return render(request, {'listarTarefas': tarefas})
+
+
 
 # def adicionarTarefa(request):
 #     form = TarefaForm(request.POST or None)
