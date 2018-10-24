@@ -13,7 +13,7 @@ def home(request):
 def entrar(request):
     form = EntrarForm(request.POST or None)
     if form.is_valid():
-        return redirect('/usuario/logado/1')
+        return redirect('/usuario/logado/')
 
     return render(request, 'app/formLogin.html', {'formLogin': form})
 
@@ -27,26 +27,38 @@ def cadastrar(request):
     return render(request, 'app/formCadastro.html', {'formCadastro': form})
 
 
-def usuarioLogado(request, pk):
+def usuarioLogado(request):
     data = {}
-    data['tarefas'] = Tarefa.objects.filter(projeto=pk)
     data['projetos'] = Projeto.objects.all()
     formTarefa = TarefaForm(request.POST or None)
     formProjeto = ProjetoForm(request.POST or None)
     if formTarefa.is_valid():
         formTarefa.save()
-        return redirect('/usuario/logado/1')
+        return redirect('/usuario/logado/')
     if formProjeto.is_valid():
         formProjeto.save()
-        return redirect('/usuario/logado/1')
+        return redirect('/usuario/logado/')
     data['formTarefa'] = formTarefa
     data['formProjeto'] = formProjeto
 
     return render(request, 'app/usuarioLogado.html', data)
 
 def listarTarefaProjeto(request, pk):
-    tarefas = Tarefa.objects.filter(projeto=pk)
-    return render(request, {'listarTarefas': tarefas})
+    data = {}
+    data['tarefas'] = Tarefa.objects.filter(projeto=pk)
+    data['projetos'] = Projeto.objects.all()
+    formTarefa = TarefaForm(request.POST or None)
+    formProjeto = ProjetoForm(request.POST or None)
+    if formTarefa.is_valid():        
+        formTarefa.save()
+        return redirect('/projeto/'+ str(pk))
+    if formProjeto.is_valid():
+        formProjeto.save()
+        return redirect('/projeto/'+ str(pk))
+    data['formTarefa'] = formTarefa
+    data['formProjeto'] = formProjeto
+
+    return render(request, 'app/listaTarefa.html', data)
 
 
 
@@ -63,22 +75,22 @@ def editarTarefa(request, pk):
     form = TarefaForm(request.POST or None, instance=tarefa)
     if form.is_valid():
         form.save()
-        return redirect('/usuario/logado/1')
+        return redirect('/projeto/'+ str(tarefa.projeto.id))
     return render(request, 'app/formTarefa.html', {'formTarefa': form})
 
 def excluirTarefa(request, pk):
     tarefa = Tarefa.objects.get(pk=pk)
     tarefa.delete()
-    return redirect('/usuario/logado/1')
+    return redirect('/projeto/'+ str(tarefa.projeto.id))
 
 
 
 def marcarConcluido(request, pk):
     tarefa = Tarefa.objects.get(pk=pk)
-    status = Status(Status.objects.filter(id=3))
-
-    tarefa.status=status
+    status = Status.objects.filter(id=3)
+    tarefa.status.nome= status
     tarefa.save()
+    return redirect('/projeto/'+ str(tarefa.projeto.id))
 
 
 
