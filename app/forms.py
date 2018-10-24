@@ -47,8 +47,9 @@ class TarefaForm(forms.ModelForm):
 class ProjetoForm(forms.ModelForm):
     class Meta:
         model = Projeto
-        fields = {'nome', 'data_vencimento'}
+        fields = {'nome', 'data_vencimento','detalhes', 'usuario'}
         widgets = {
             'nome': forms.TextInput(attrs={'class': 'form-control'}),
             'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA', 'class': 'form-control'}),
+            'detalhes': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
         }

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     {% load static %}
 
@@ -12,6 +13,7 @@
     <link rel="stylesheet" type="text/css" href="{% static '/app/style/style.css'%}">
     <title>!Trello</title>
 </head>
+
 <body>
     <div>
         <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
@@ -20,18 +22,19 @@
                 <img src="{% static '/app/imgs/logo1.jpg'%}" class="logo">
 
             </h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+                aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <strong>
-                        <a class="nav-item nav-link active" href="#" data-toggle="modal" data-target="#myModalProjeto">+
-                            Adicionar Projeto</a>
-                    </strong>
-                    <a class="nav-item nav-link" href="#">Perfil</a>
-                    <a class="nav-item nav-link" href="/usuario/entrar">Sair</a>
+
+                    <a href="#" class="nav-item nav-link active" data-toggle="modal" data-target="#myModalTarefa">
+                        <i class="fas fa-plus"></i> Nova Tarefa
+                    </a>
+
+                    <a class="nav-item nav-link active" href="/{{projeto.usuario.id}}">{{projeto.usuario}}</a>
+                    <a class="nav-item nav-link active" href="/usuario/entrar">Sair</a>
                 </div>
             </div>
         </nav>
@@ -40,31 +43,31 @@
     </div>
 
     <!-- content -->
-    <div class="container-fluid text-center">
+    <div class="container-fluid text-left">
         <div class="row content">
             <ul class="sidebar navbar-nav bg-light">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-toggle="dropdown">
-                        <i class="fas fa-fw fa-folder"></i>
-                        <span>Lista de Projetos</span>
+                <h6 class="dropdown-header">Projetos:
+                    <a href="#" data-toggle="modal" data-target="#myModalProjeto">
+                        <i class="fas fa-plus"></i>
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="pagesDropdown">
-                        <h6 class="dropdown-header">Projetos:</h6>
+                </h6>
+                
 
-                        {% for projeto in projetos %}
-                        <a class="dropdown-item" href="/projeto/{{projeto.id}}">{{projeto.nome}}</a>
+                    {% for projeto in projetos %}
+                    <li><a class="nav-item"  href="/{{projeto.usuario.id}}/projeto/{{projeto.id}}">{{projeto.nome}}</a></li>
+                    {% endfor %}
 
-                        {% endfor %}
-                    </div>
-                </li>
+                
+
             </ul>
             <div class="col-sm-8 text-left">
                 <div id="app">
                     <br>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModalTarefa">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <br>
+                    <h3>{{ projeto.nome }}
+                        <a href="/projeto/excluir/{{projeto.id}}">
+                            <i class="far fa-times-circle" style="color: red;"></i>
+                        </a>
+                    </h3>
                     <br>
                     <h4>Tarefas</h4>
 
@@ -77,7 +80,6 @@
                             <th>Descrição</th>
                             <th>Data de Criação</th>
                             <th>Vencimento</th>
-                            <th>Projeto</th>
 
                         </tr>
                         {% for tarefa in tarefas %}
@@ -87,7 +89,7 @@
                                 <td id="descricao">{{tarefa.descricao}}</td>
                                 <td>{{tarefa.data_criacao}}</td>
                                 <td>{{tarefa.data_vencimento}}</td>
-                                <td>{{tarefa.projeto}}</td>
+
                                 <td>
                                     <a class="btn btn-success btn-sm" href="/tarefa/concluido/{{tarefa.id}}">
                                         <i class="far fa-check-circle"></i>
@@ -114,8 +116,7 @@
     </div>
 
     <!--Modals-->
-    {% include "app/modalTarefa.html" %}
-    {% include "app/modalProjeto.html" %}
+    {% include "app/modalTarefa.html" %} {% include "app/modalProjeto.html" %}
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -150,4 +151,5 @@
 
     </script>
 </body>
+
 </html>

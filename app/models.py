@@ -14,9 +14,10 @@ class Status(models.Model):
 
 
 class Usuario(models.Model):
-    nome = models.CharField(max_length=200)
-    email = models.EmailField(max_length=200)
-    senha = models.CharField(max_length=200)
+    nome = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50)
+    senha = models.CharField(max_length=50)
+    avatar = models.ImageField(upload_to="static/app/imgs/uploads/", blank=True)
 
     def __str__(self):
         return self.nome
@@ -25,6 +26,7 @@ class Usuario(models.Model):
 class Projeto(models.Model):
     nome = models.CharField(max_length=100)
     data_vencimento = models.DateField('Concluir até:', null=True)
+    detalhes = models.CharField('Descrição', max_length=200, default="", blank=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=True)
 
     def __str__(self):

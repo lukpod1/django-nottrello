@@ -15,8 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app.views import home, entrar, cadastrar, usuarioLogado,  editarTarefa, excluirTarefa,marcarConcluido, listarTarefaProjeto
-
+from app.views import home, entrar, cadastrar, usuarioLogado, editarTarefa, excluirTarefa, marcarConcluido, \
+    listarTarefaProjeto, excluirProjeto
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,9 +24,9 @@ urlpatterns = [
     path('home/', home),
     path('usuario/entrar', entrar),
     path('usuario/cadastrar', cadastrar),
-    path('usuario/logado/', usuarioLogado),
-    path('projeto/<int:pk>', listarTarefaProjeto),
-    # path('tarefa/nova', adicionarTarefa),
+    path('<int:pk_usuario>', usuarioLogado),
+    path('<int:pk_usuario>/projeto/<int:pk_projeto>', listarTarefaProjeto),
+    path('projeto/excluir/<int:pk>', excluirProjeto),
     path('tarefa/editar/<int:pk>', editarTarefa),
     path('tarefa/excluir/<int:pk>', excluirTarefa),
     path('tarefa/concluido/<int:pk>', marcarConcluido)

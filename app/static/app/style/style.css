@@ -11,6 +11,11 @@ body{
 	margin-top:-3px;
 	margin-left: 100px;
 }
+.avatar{
+    width: 200px;
+    border-radius: 22px;
+     margin: 30px
+}
 .logo:hover{
 	opacity: 0.9;
 }
@@ -20,11 +25,14 @@ textarea {
 }
 
 
+li > a{
+    color:black;
+    padding:10px;
+}
 
 li > a:hover{
+    text-decoration : none;
 
-	border-bottom:solid;	 
-	border-bottom-color: #2374c7;
 	
 }
 
