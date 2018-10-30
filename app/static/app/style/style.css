@@ -12,9 +12,9 @@ body{
 	margin-left: 100px;
 }
 .avatar{
-    width: 200px;
+    width: 250px;
     border-radius: 22px;
-     margin: 30px
+
 }
 .logo:hover{
 	opacity: 0.9;

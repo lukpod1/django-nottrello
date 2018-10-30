@@ -126,5 +126,5 @@ STATICFILES_DIRS = (
 
 )
 
-# MEDIA_URL = '/static/imgs/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'django-nottrello/app/static/app/imgs/uploads')

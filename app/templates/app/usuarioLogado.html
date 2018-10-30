@@ -4,101 +4,112 @@
 <head>
     {% load static %}
 
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta http-equiv="Content-Type" content="text/html">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
 
     <link rel="stylesheet" type="text/css" href="{% static '/app/style/usuarioLogadoStylecss.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static '/app/style/style.css'%}">
-    <title>!Trello</title>
+    <title>!Trello - Seus projetos</title>
 </head>
 
-<body>
-    <div>
-        <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
-            <h1 class="logo float-left">
+<body style="background-color:whitesmoke">
+<div>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
+        <h1 class="logo float-left">
 
-                <img src="{% static '/app/imgs/logo1.jpg'%}" class="logo">
+            <img src="{% static '/app/imgs/logo1.jpg'%}" class="logo">
 
-            </h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+        </h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
                 aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">                   
-                    <strong>
-                        <a class="nav-item nav-link active" href="/usuario/entrar">Sair</a>
-                    </strong>
-                    
-                </div>
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <strong>
+                    <a class="nav-item nav-link active" href="/usuario/logout">Sair</a>
+                </strong>
+
             </div>
-        </nav>
+        </div>
+    </nav>
 
 
-    </div>
+</div>
 
-    <!-- content -->
-    <div class="container-fluid text-center">
-        <div class="row content">
-            <ul class="sidebar navbar-nav bg-light">
+<!-- content -->
+<div class="container-fluid text-left">
+    <div class="row content" style="margin:30px;  background-color:white; padding:20px; border-radius:22px;">
+        <div class="col-sm-3" style="margin-left:40px">
+            <ul class="sidebar navbar-nav">
+                    <li>
+                        <center>
+                        {% if usuario.avatar %}
+                            <img class="avatar" src="/media/{{usuario.avatar}}">
+                            {% else %}
+                                <img class="avatar" src="{% static '/app/imgs/padrao.jpg'%}">
+                        {% endif %}
+                        </center>
+                    </li>
+
                 <li>
-                    <img class="avatar"  src="{{usuario.avatar}}">
-                </li>
-                <li>
-                    <h4>{{usuario.nome}}</h4>
-                    <small>{{usuario.email}}</small>
+                    <h4>{{usuario.nomeCompleto}}</h4>
+                    <h6>{{usuario.nomeUsuario}}</h6>
+                    <h6><a href="/usuario/perfil/{{usuario.id}}">Editar Perfil</a></h6>
                 </li>
             </ul>
-            <div class="col-sm-8 text-left">
-                <div id="app">
-                    <br>
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#myModalProjeto">
-                        <i class="fas fa-plus"></i>
-                    </button>
-                    <br>
-                    <h4>Meus Projetos</h4>
-                    
-                    <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
-                    
 
-                    <table class=" table table-hover" style="width:100%">
+        </div>
 
-                    
-                        {% for projeto in projetos %}
-                        <tbody id="myTable">
-                            
-                            <tr>                                
-                                    <td>
-                                         <a  href="{{projeto.usuario.id}}/projeto/{{projeto.id}}">
-                                            <h5>{{projeto.nome}}</h5>
-                                         </a>
-                                     
-                                        <small>{{projeto.detalhes}}</small>
-                                    </td>                           
-                                
+        <div class="col-sm-8 text-left">
+            <div id="app">
+                <br>
+                <button class="btn btn-primary" data-toggle="modal" data-target="#myModalProjeto">
+                    <i class="fas fa-plus"></i>Novo Projeto
+                </button>
+                <hr>
+                <h4>Meus Projetos</h4>
 
-                                
-                            </tr>
-                        
-                        </tbody>
-                        {% endfor %}
-                    </table>
+                <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
 
-                </div>
+
+                <table class=" table table-hover" style="width:100%">
+
+
+                    {% for projeto in projetos %}
+                    <tbody id="myTable">
+
+                    <tr>
+                        <td>
+                            <a href="/{{projeto.usuario.id}}/projeto/{{projeto.id}}">
+                                <h5>{{projeto.nome}}</h5>
+                            </a>
+
+                            <small>{{projeto.detalhes}}</small>
+                        </td>
+
+
+                    </tr>
+
+                    </tbody>
+                    {% endfor %}
+                </table>
+
             </div>
         </div>
     </div>
+</div>
 
-    <!--Modals-->
-    {% include "app/modalProjeto.html" %}
+<!--Modals-->
+{% include "app/modalProjeto.html" %}
 
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    <script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script>
         $(document).ready(function () {
             $("#myInput").on("keyup", function () {
                 var value = $(this).val().toLowerCase();
@@ -125,7 +136,8 @@
 
 
 
-    </script>
+
+</script>
 </body>
 
 </html>

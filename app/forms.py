@@ -6,26 +6,44 @@ from .models import Usuario, Tarefa, Projeto
 class CadastroForm(forms.ModelForm):
     class Meta:
         model = Usuario
-        fields = ('nome', 'email', 'senha')
+        fields = ('nomeCompleto','nomeUsuario', 'email', 'senha')
         widgets = {
-            'nome': forms.TextInput(
+
+            'nomeCompleto': forms.TextInput(
                 attrs={'class': 'form-control', 'required': 'true',
                        'autofocus': 'true'}),
+            'nomeUsuario': forms.TextInput(
+                attrs={'class': 'form-control', 'required': 'true'}),
             'email': forms.EmailInput(
-                attrs={'class': 'form-control', 'required': 'true',
-                       'autofocus': 'true'}),
+                attrs={'class': 'form-control', 'required': 'true'}),
 
             'senha': forms.PasswordInput(
                 attrs={'class': 'form-control', 'id': 'inputPassword', 'required': 'true'}),
         }
 
 
+class EditarPerfilForm(forms.ModelForm):
+    class Meta:
+        model = Usuario
+        fields = ('nomeCompleto','nomeUsuario', 'senha', 'avatar')
+        widgets = {
+            'nomeCompleto': forms.TextInput(
+                attrs={'class':'form-control', 'required': 'true',
+                       'autofocus': 'true'}),
+            'nomeUsuario': forms.TextInput(
+                attrs={'class': 'form-control', 'required': 'true'}),
+            'senha': forms.TextInput(
+                attrs={'class': 'form-control'}),
+            'avatar': forms.FileInput(attrs={'class':'form-control'}),
+        }
+
+
 class EntrarForm(forms.ModelForm):
     class Meta:
         model = Usuario
-        fields = ('nome', 'senha')
+        fields = ('nomeUsuario', 'senha')
         widgets = {
-            'nome': forms.TextInput(
+            'nomeUsuario': forms.TextInput(
                 attrs={'class': 'form-control', 'required': 'true', 'autofocus': 'true'}),
             'senha': forms.PasswordInput(
                 attrs={'class': 'form-control', 'required': 'true'}),
@@ -35,21 +53,24 @@ class EntrarForm(forms.ModelForm):
 class TarefaForm(forms.ModelForm):
     class Meta:
         model = Tarefa
-        fields = {'nome', 'descricao', 'data_vencimento','projeto'}
+        fields = {'id', 'nome', 'descricao', 'data_vencimento', 'projeto'}
         widgets = {
-            'nome': forms.TextInput(attrs={'class': 'form-control'}),
-            'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA', 'class': 'form-control'}),
+            'id': forms.NumberInput(attrs={'id':'id'}),
+            'nome': forms.TextInput(attrs={'class': 'form-control', 'id':'nome'}),
+            'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA', 'class': 'form-control', 'id':'data_vencimento'}),
             'descricao': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
-            'projeto': forms.Select(attrs={'class': 'form-control'}),
+            'projeto': forms.HiddenInput(attrs={'class': 'form-control', 'id':'projeto'}),
 
         }
+
 
 class ProjetoForm(forms.ModelForm):
     class Meta:
         model = Projeto
-        fields = {'nome', 'data_vencimento','detalhes', 'usuario'}
+        fields = {'nome', 'data_vencimento', 'detalhes', 'usuario'}
         widgets = {
             'nome': forms.TextInput(attrs={'class': 'form-control'}),
             'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA', 'class': 'form-control'}),
             'detalhes': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
+
         }

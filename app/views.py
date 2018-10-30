@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
 from app.models import Tarefa, Projeto, Status, Usuario
-from .forms import CadastroForm, TarefaForm, ProjetoForm
+from .forms import CadastroForm, TarefaForm, ProjetoForm, EditarPerfilForm
 from .forms import EntrarForm
 
 
@@ -13,9 +13,25 @@ def home(request):
 def entrar(request):
     form = EntrarForm(request.POST or None)
     if form.is_valid():
-        return redirect('/1')
+        return logar(request)
 
     return render(request, 'app/formLogin.html', {'formLogin': form})
+
+def logar(request):
+    usuarioLogado = Usuario.objects.get(nomeUsuario=request.POST['nomeUsuario'])
+    if usuarioLogado.senha==request.POST['senha']:
+        request.session['usuario_id'] = usuarioLogado.id
+        return redirect('/usuario/logado/' + str(usuarioLogado.id))
+    else:
+        return redirect('usuario/entrar')
+
+def logout(request):
+    try:
+        del request.session['usuario_id']
+    except KeyError:
+        pass
+    return redirect('/usuario/entrar')
+
 
 
 def cadastrar(request):
@@ -26,6 +42,16 @@ def cadastrar(request):
 
     return render(request, 'app/formCadastro.html', {'formCadastro': form})
 
+def editarPerfil(request, pk_usuario):
+    data = {}
+    data['usuario'] = Usuario.objects.get(pk=pk_usuario)
+    data['formPerfil'] = EditarPerfilForm(request.POST or None, request.FILES or None, instance=data['usuario'])
+    if data['formPerfil'].is_valid():
+        data['formPerfil'].save()
+        return redirect('/usuario/logado/'+str(pk_usuario))
+
+    return render(request, 'app/formPerfil.html', data)
+
 
 def usuarioLogado(request, pk_usuario):
     data = {}
@@ -34,7 +60,7 @@ def usuarioLogado(request, pk_usuario):
     formProjeto = ProjetoForm(request.POST or None)
     if formProjeto.is_valid():
         formProjeto.save()
-        return redirect('/'+str(pk_usuario))
+        return redirect('/usuario/logado/'+str(pk_usuario))
     data['formProjeto'] = formProjeto
 
     return render(request, 'app/usuarioLogado.html', data)

@@ -13,10 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
 from app.views import home, entrar, cadastrar, usuarioLogado, editarTarefa, excluirTarefa, marcarConcluido, \
-    listarTarefaProjeto, excluirProjeto
+    listarTarefaProjeto, excluirProjeto, logout, editarPerfil
+from nottrello import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,12 +26,17 @@ urlpatterns = [
     path('home/', home),
     path('usuario/entrar', entrar),
     path('usuario/cadastrar', cadastrar),
-    path('<int:pk_usuario>', usuarioLogado),
+    path('usuario/logado/<int:pk_usuario>', usuarioLogado, name='usuarioLogado'),
+    path('usuario/perfil/<int:pk_usuario>', editarPerfil),
     path('<int:pk_usuario>/projeto/<int:pk_projeto>', listarTarefaProjeto),
     path('projeto/excluir/<int:pk>', excluirProjeto),
     path('tarefa/editar/<int:pk>', editarTarefa),
     path('tarefa/excluir/<int:pk>', excluirTarefa),
-    path('tarefa/concluido/<int:pk>', marcarConcluido)
+    path('tarefa/concluido/<int:pk>', marcarConcluido),
+    path('usuario/logout', logout)
 
 
 ]
+
+if settings.DEBUG:
+    urlpatterns+=static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
