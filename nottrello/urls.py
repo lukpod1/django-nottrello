@@ -16,8 +16,7 @@ Including another URLconf
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path
-from app.views import home, entrar, cadastrar, usuarioLogado, editarTarefa, excluirTarefa, marcarConcluido, \
-    listarTarefaProjeto, excluirProjeto, logout, editarPerfil
+from app.views import home, entrar, cadastrar, usuarioLogado, editarTarefa, excluirTarefa, excluirProjeto, marcarConcluido,listarTarefaProjeto, logout, editarPerfil, editarProjeto
 from nottrello import settings
 
 urlpatterns = [
@@ -30,6 +29,7 @@ urlpatterns = [
     path('usuario/perfil/<int:pk_usuario>', editarPerfil),
     path('<int:pk_usuario>/projeto/<int:pk_projeto>', listarTarefaProjeto),
     path('projeto/excluir/<int:pk>', excluirProjeto),
+    path('projeto/editar/<int:pk>', editarProjeto),
     path('tarefa/editar/<int:pk>', editarTarefa),
     path('tarefa/excluir/<int:pk>', excluirTarefa),
     path('tarefa/concluido/<int:pk>', marcarConcluido),

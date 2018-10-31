@@ -87,8 +87,15 @@ def listarTarefaProjeto(request, pk_usuario,pk_projeto):
 
     return render(request, 'app/listaTarefa.html', data)
 
+def editarProjeto(request, pk):
+    projeto = Projeto.objects.get(pk=pk)
+    form = ProjetoForm(request.POST or None, instance=projeto)
+    if form.is_valid():
+        form.save()
+        return redirect('/usuario/logado/'+str(projeto.usuario.id))
+    return render(request, 'app/formProjeto.html', {'formProjeto': form})
 
-def excluirProjeto(request, pk ):
+def excluirProjeto(request, pk):
     projeto = Projeto.objects.get(pk=pk)
     projeto.delete()
     return redirect('/'+str(projeto.usuario.id))

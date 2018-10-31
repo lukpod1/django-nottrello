@@ -22,8 +22,8 @@
                 <img src="{% static '/app/imgs/logo1.jpg'%}" class="logo">
 
             </h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-                aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
@@ -51,13 +51,13 @@
                         <i class="fas fa-plus"></i>
                     </a>
                 </h6>
-                
 
-                    {% for projeto in projetos %}
-                    <li><a class="nav-item"  href="/{{projeto.usuario.id}}/projeto/{{projeto.id}}">{{projeto.nome}}</a></li>
-                    {% endfor %}
 
-                
+                {% for projeto in projetos %}
+                <li><a class="nav-item" href="/{{projeto.usuario.id}}/projeto/{{projeto.id}}">{{projeto.nome}}</a></li>
+                {% endfor %}
+
+
 
             </ul>
             <div class="col-sm-8 text-left">
@@ -66,6 +66,9 @@
                     <h3>{{ projeto.nome }}
                         <a href="/projeto/excluir/{{projeto.id}}">
                             <i class="far fa-times-circle" style="color: red;"></i>
+                        </a>
+                        <a href="/projeto/editar/{{projeto.id}}">
+                            <i class="fas fa-pencil-alt"></i>
                         </a>
                     </h3>
                     <br>
@@ -85,7 +88,6 @@
                         {% for tarefa in tarefas %}
                         <tbody id="myTable">
                             <tr>
-                                <td>{{tarefa.id}}</td>
                                 <td>{{tarefa.nome}}</td>
                                 <td id="descricao">{{tarefa.descricao}}</td>
                                 <td>{{tarefa.data_criacao}}</td>
@@ -102,7 +104,7 @@
                                     </a>
                                 </td>
                                 <td>
-                                    <a id="btnEditar" href="#" data-toggle="modal" data-target="#myModalTarefa" data-id="{{tarefa.id}}" data-nome="{{tarefa.nome}}" data-vencimento="{{tarefa.data_vencimento}}" data-descricao="{{tarefa.descricao}}" data-projeto="{{projeto.id}}" class="btn btn-dark btn-sm">
+                                    <a id="btnEditar" href="/tarefa/editar/{{tarefa.id}}"  class="btn btn-dark btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
@@ -117,7 +119,8 @@
     </div>
 
     <!--Modals-->
-    {% include "app/modalTarefa.html" %} {% include "app/modalProjeto.html" %}
+    {% include "app/modalTarefa.html" %} 
+    {% include "app/modalProjeto.html" %}
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -133,24 +136,43 @@
             });
         });
 
-            $('#myModalTarefa').on('show.bs.modal', function (event) {
+        $('#myModalTarefa').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) //Button that triggered the modal
-                var id = button.data('id')
-                var nome = button.data('nome') //Extract info from data-* attributes
-                var descricao = button.data('descricao') //Extract info from data-* attributes
-                var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
-                var projeto = button.data('projeto') //Extract info from data-* attributes
-                //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
-                // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var id = button.data('id')
+            var nome = button.data('nome') //Extract info from data-* attributes
+            var descricao = button.data('descricao') //Extract info from data-* attributes
+            var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
+
+            //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
             var modal = $(this)
-                if(id!=null){
-                    modal.find('.modal-title').text('Editar ' + nome)
-                }
-                modal.find('.modal-body input#id').val(id)
-                modal.find('.modal-body input#nome').val(nome)
-                modal.find('.modal-body input#data_vencimento').val(dtVencimento)
-                modal.find('.modal-body input#projeto').val(projeto)
-                modal.find('.modal-body textarea').val(descricao)
+            if (id != null) {
+                modal.find('.modal-title').text('Editar ' + nome)
+            }
+            modal.find('.modal-body input#id').val(id)
+            modal.find('.modal-body input#nome').val(nome)
+            modal.find('.modal-body input#data_vencimento').val(dtVencimento)
+            modal.find('.modal-body textarea').val(descricao)
+        })
+        $('#myModalProjeto').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) //Button that triggered the modal
+            var id = button.data('id')
+            var nome = button.data('nome') //Extract info from data-* attributes
+            var descricao = button.data('descricao') //Extract info from data-* attributes
+            var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
+
+
+            //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+            if (id != null) {
+                modal.find('.modal-title').text('Editar ' + nome)
+            }
+            modal.find('.modal-body input#id').val(id)
+            modal.find('.modal-body input#nome').val(nome)
+            modal.find('.modal-body input#data_vencimento').val(dtVencimento)
+            modal.find('.modal-body textarea').val(descricao)
+
         })
 
 
