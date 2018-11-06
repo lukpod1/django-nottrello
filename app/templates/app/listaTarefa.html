@@ -70,6 +70,9 @@
                         <a href="/projeto/editar/{{projeto.id}}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
+                        <a href="/projeto/concluir/{{projeto.id}}">
+                            <i class="far fa-check-circle" style="color: green;"></i>
+                        </a>
                     </h3>
                     <br>
                     <h4>Tarefas</h4>
@@ -83,32 +86,77 @@
                             <th>Descrição</th>
                             <th>Data de Criação</th>
                             <th>Vencimento</th>
+                            <th>Status</th>
 
                         </tr>
                         {% for tarefa in tarefas %}
                         <tbody id="myTable">
+                            {% if tarefa.status.id == 1%}
                             <tr>
-                                <td>{{tarefa.nome}}</td>
+                                <td style="border-left: 12px solid yellow">{{tarefa.nome}}</td>
                                 <td id="descricao">{{tarefa.descricao}}</td>
                                 <td>{{tarefa.data_criacao}}</td>
                                 <td>{{tarefa.data_vencimento}}</td>
+                                <td>{{tarefa.status}}</td>
+
 
                                 <td>
-                                    <a class="btn btn-success btn-sm" href="/tarefa/concluido/{{tarefa.id}}">
-                                        <i class="far fa-check-circle"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <a class="btn btn-danger btn-sm" href="/tarefa/excluir/{{tarefa.id}}">
+                                    <a class="btn btn-danger btn-sm" href="/tarefa/excluir/{{tarefa.id}}" id="excluirTarefa">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
                                 <td>
-                                    <a id="btnEditar" href="/tarefa/editar/{{tarefa.id}}"  class="btn btn-dark btn-sm">
+                                    <a id="btnEditar" href="/tarefa/editar/{{tarefa.id}}" class="btn btn-dark btn-sm">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
                             </tr>
+
+                            {% elif tarefa.status.id == 2%}
+                            <tr>
+                                <td style="border-left: 12px solid orange">{{tarefa.nome}}</td>
+                                <td id="descricao">{{tarefa.descricao}}</td>
+                                <td>{{tarefa.data_criacao}}</td>
+                                <td>{{tarefa.data_vencimento}}</td>
+                                <td>{{tarefa.status}}</td>
+
+
+                                <td>
+                                    <a class="btn btn-danger btn-sm" href="/tarefa/excluir/{{tarefa.id}}" id="excluirTarefa">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a id="btnEditar" href="/tarefa/editar/{{tarefa.id}}" class="btn btn-dark btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+                            {% else %}
+                            <tr>
+                                <td style="border-left: 12px solid green">{{tarefa.nome}}</td>
+                                <td id="descricao">{{tarefa.descricao}}</td>
+                                <td>{{tarefa.data_criacao}}</td>
+                                <td>{{tarefa.data_vencimento}}</td>
+                                <td>{{tarefa.status}}</td>
+
+                                
+                                <td>
+                                    
+                                    <a  href="/tarefa/excluir/{{tarefa.id}}" class="btn btn-danger btn-sm">
+                                        <i class="far fa-trash-alt"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a id="btnEditar" href="/tarefa/editar/{{tarefa.id}}" class="btn btn-dark btn-sm">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
+                                </td>
+                            </tr>
+
+                            {% endif %}
+                            
                         </tbody>
                         {% endfor %}
                     </table>
@@ -119,10 +167,10 @@
     </div>
 
     <!--Modals-->
-    {% include "app/modalTarefa.html" %} 
+    {% include "app/modalTarefa.html" %}
     {% include "app/modalProjeto.html" %}
 
-
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -174,6 +222,9 @@
             modal.find('.modal-body textarea').val(descricao)
 
         })
+
+        
+
 
 
 

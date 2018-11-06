@@ -32,7 +32,9 @@ class Projeto(models.Model):
     nome = models.CharField(max_length=100)
     data_vencimento = models.DateField('Concluir até:', null=True)
     detalhes = models.CharField('Descrição', max_length=200, default="", blank=True)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    status =  models.ForeignKey(Status, on_delete=models.CASCADE, default=True, null=True,blank=True)
+    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE, default=True, null=True,blank=True)
+    
 
     def __str__(self):
         return self.nome

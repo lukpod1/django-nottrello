@@ -1,0 +1,38 @@
+<div class="row">
+    <div class="col-sm-9">
+        <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+    </div>
+    <div class="col-sm-3">
+        <button class="btn btn-primary" data-toggle="modal" data-usuario="{{usuarioLogado.id}}" data-target="#myModalProjeto">
+            <i class="fas fa-plus"></i> Novo Projeto
+        </button>
+    </div>
+</div>
+
+
+<br>
+<table class=" table table-hover" style="width:100%">
+
+    {% for projeto in projetos  %}
+        <tbody id="myTable">
+
+            <tr>
+                <td>
+                    <a href="/{{projeto.usuario.id}}/projeto/{{projeto.id}}">
+                        <h5>{{projeto.nome}}</h5>
+                    </a>
+
+                    <small>{{projeto.detalhes}}</small>
+                </td>
+
+                <td>
+                    <canvas class="biscoito" width="200" height="50"></canvas>
+                </td>
+
+
+
+            </tr>
+
+        </tbody>
+    {% endfor %}
+</table>

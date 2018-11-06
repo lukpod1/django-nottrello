@@ -1,0 +1,21 @@
+<div class="row">
+    {% for projeto in projetos  %}
+        <div class="col-sm-6" style="margin-bottom:30px;">
+
+            <div class="card w-100 h-100">
+                <h5 class="card-header"> <a href="/{{projeto.usuario.id}}/projeto/{{projeto.id}}" >{{projeto.nome}}</a></h5>
+                <div class="card-body">
+
+                    <p class="card-text">{{projeto.detalhes}}.</p>
+                   
+                </div>
+            </div>
+
+
+        </div>
+    {% endfor %}
+</div>
+
+<canvas class="line-graph">
+
+</canvas>

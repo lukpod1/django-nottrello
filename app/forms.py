@@ -53,21 +53,19 @@ class EntrarForm(forms.ModelForm):
 class TarefaForm(forms.ModelForm):
     class Meta:
         model = Tarefa
-        fields = {'id', 'nome', 'descricao', 'data_vencimento', 'projeto'}
+        fields = {'id', 'nome', 'descricao', 'data_vencimento','status', 'projeto'}
         widgets = {
             'id': forms.NumberInput(attrs={'id': 'id'}),
             'nome': forms.TextInput(attrs={'class': 'form-control', 'id': 'nome'}),
             'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA', 'class': 'form-control', 'id': 'data_vencimento'}),
             'descricao': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
-
-
         }
 
 
 class ProjetoForm(forms.ModelForm):
     class Meta:
         model = Projeto
-        fields = {'nome', 'data_vencimento', 'detalhes', 'usuario'}
+        fields = {'nome', 'data_vencimento', 'detalhes', 'usuario', 'status'}
         widgets = {
             'nome': forms.TextInput(attrs={'class': 'form-control', 'id': 'nome'}),
             'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA', 'class': 'form-control', 'id': 'data_vencimento'}),

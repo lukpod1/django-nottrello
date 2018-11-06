@@ -65,37 +65,31 @@
 
         <div class="col-sm-8 text-left">
             <div id="app">
-                <br>
-                <button class="btn btn-primary" data-toggle="modal" data-target="#myModalProjeto">
-                    <i class="fas fa-plus"></i>Novo Projeto
-                </button>
-                <hr>
-                <h4>Meus Projetos</h4>
-
-                <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
-
-
-                <table class=" table table-hover" style="width:100%">
-
-
-                    {% for projeto in projetos %}
-                    <tbody id="myTable">
-
-                    <tr>
-                        <td>
-                            <a href="/{{projeto.usuario.id}}/projeto/{{projeto.id}}">
-                                <h5>{{projeto.nome}}</h5>
-                            </a>
-
-                            <small>{{projeto.detalhes}}</small>
-                        </td>
-
-
-                    </tr>
-
-                    </tbody>
-                    {% endfor %}
-                </table>
+                <section id="tabs">
+                        <div class="container">
+                            
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <nav>
+                                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Visão Geral</a>
+                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Projetos</a>
+                                        </div>
+                                    </nav>
+                                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                            {% include "app/overview.html" %} 
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                            {% include "app/projetos.html" %}
+                                        </div>
+                                        
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </section>
 
             </div>
         </div>
@@ -105,10 +99,12 @@
 <!--Modals-->
 {% include "app/modalProjeto.html" %}
 
-
+<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="{% static '/app/scripts/main.js' %}"></script>
 <script>
         $(document).ready(function () {
             $("#myInput").on("keyup", function () {
