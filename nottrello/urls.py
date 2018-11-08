@@ -33,8 +33,8 @@ urlpatterns = [
     path('projeto/concluir/<int:pk>', concluirProjeto),
     path('tarefa/editar/<int:pk>', editarTarefa),
     path('tarefa/excluir/<int:pk>', excluirTarefa),
-    
     path('usuario/logout', logout)
+    
 
 
 ]

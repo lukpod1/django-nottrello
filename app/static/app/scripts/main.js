@@ -1,75 +1,36 @@
-jQuery(document).ready(function($) {
+jQuery(document).ready(function ($) {
 
     /* ======= Scrollspy ======= */
-    $('body').scrollspy({ target: '#header', offset: 400});
-    
+    $('body').scrollspy({ target: '#header', offset: 400 });
+
     /* ======= Fixed header when scrolled ======= */
-    
-    $(window).bind('scroll', function() {
-         if ($(window).scrollTop() > 50) {
-             $('#header').addClass('navbar-fixed-top');
-         }
-         else {
-             $('#header').removeClass('navbar-fixed-top');
-         }
+
+    $(window).bind('scroll', function () {
+        if ($(window).scrollTop() > 50) {
+            $('#header').addClass('navbar-fixed-top');
+        }
+        else {
+            $('#header').removeClass('navbar-fixed-top');
+        }
     });
-   
+
     /* ======= ScrollTo ======= */
-    $('a.scrollto').on('click', function(e){
-        
+    $('a.scrollto').on('click', function (e) {
+
         //store hash
         var target = this.hash;
-                
+
         e.preventDefault();
-        
-		$('body').scrollTo(target, 800, {offset: -70, 'axis':'y', easing:'easeOutQuad'});
+
+        $('body').scrollTo(target, 800, { offset: -70, 'axis': 'y', easing: 'easeOutQuad' });
         //Collapse mobile menu after clicking
-		if ($('.navbar-collapse').hasClass('show')){
-			$('.navbar-collapse').removeClass('show');
-		}
-		
-	});
+        if ($('.navbar-collapse').hasClass('show')) {
+            $('.navbar-collapse').removeClass('show');
+        }
+
+    });
 
 });
 
 // grafico
 
-var ctx = document.getElementsByClassName("line-graph");
-
-
-var graph = new Chart(ctx, {
-    type: 'line',
-    data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "Octuber", "November", "December"],
-        datasets: [{
-            label: "Projetos Concluídos",
-            data: [5,10,5,14,20,15,9,10,5,0,10,1],
-            borderWidth: 6,
-            borderColor: 'rgba(77,166,253,0.85)',
-            background: 'transparent',
-        },
-        {
-            label: "Tarefas Concluídos",
-            data: [7,15,4,12,12,8,9,5,4,0,3,7],
-            borderWidth: 6,
-            borderColor: 'green',
-            background: 'transparent',
-        }]
-    }
-});
-
-var biscoito = document.getElementsByClassName('biscoito');
-
-var myPieChart = new Chart(biscoito,{
-    type: 'doughnut',
-    data: {
-        labels: ["Pendentes", "Em andamento", "Concluídas"],
-        datasets:[{
-            label: "Tarefas",
-            data: [10,20,5],
-            backgroundColor: ["yellow", "orange", "green"],
-           
-        }],
-        
-    },
-});

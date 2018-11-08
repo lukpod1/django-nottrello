@@ -13,26 +13,22 @@
 <br>
 <table class=" table table-hover" style="width:100%">
 
-    {% for projeto in projetos  %}
-        <tbody id="myTable">
+    {% for projeto in projetos %}
+    <tbody id="myTable">
 
-            <tr>
-                <td>
-                    <a href="/{{projeto.usuario.id}}/projeto/{{projeto.id}}">
-                        <h5>{{projeto.nome}}</h5>
-                    </a>
+        <tr>
+            <td>
+                <a href="/{{projeto.usuario.id}}/projeto/{{projeto.id}}">
+                    <h5>{{projeto.nome}}</h5>
+                </a>
 
-                    <small>{{projeto.detalhes}}</small>
-                </td>
+                <small>{{projeto.detalhes}}</small>
+            </td>
 
-                <td>
-                    <canvas class="biscoito" width="200" height="50"></canvas>
-                </td>
+            
 
+        </tr>
 
-
-            </tr>
-
-        </tbody>
+    </tbody>
     {% endfor %}
 </table>

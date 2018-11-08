@@ -4,6 +4,8 @@ from app.models import Tarefa, Projeto, Status, Usuario
 from .forms import CadastroForm, TarefaForm, ProjetoForm, EditarPerfilForm
 from .forms import EntrarForm
 
+import json
+
 
 # Create your views here.
 def home(request):
@@ -66,6 +68,21 @@ def usuarioLogado(request, pk_usuario):
         return redirect('/usuario/logado/'+str(pk_usuario))
     data['formProjeto'] = formProjeto
 
+    queryset = Projeto.objects.filter(usuario=pk_usuario)
+    qtProjetoPendente = 0
+    qtProjetoEmAndamento = 0
+    qtProjetoConcluido = 0
+
+    for projeto in queryset:
+        if (projeto.status.id == 1):
+            qtProjetoPendente += 1
+            data['qtPendente'] = qtProjetoPendente
+        if (projeto.status.id == 2):
+            qtProjetoEmAndamento += 1
+            data['qtEmAndamento'] = qtProjetoEmAndamento
+        if (projeto.status.id == 3):
+            qtProjetoConcluido += 1
+            data['qtConcluido'] = qtProjetoConcluido
     return render(request, 'app/usuarioLogado.html', data)
 
 
@@ -88,6 +105,23 @@ def listarTarefaProjeto(request, pk_usuario, pk_projeto):
         formProjeto.save()
         return redirect('/' + str(pk_usuario)+'/projeto/' + str(pk_projeto))
     data['formProjeto'] = formProjeto
+
+    queryset = Tarefa.objects.filter(projeto=pk_projeto)
+    qtTarefaPendente = 0
+    qtTarefaEmAndamento = 0
+    qtTarefaConcluido = 0
+
+
+    for tarefa in queryset:
+        if (tarefa.status.id == 1):
+            qtTarefaPendente += 1
+            data['qtPendente'] = qtTarefaPendente
+        elif (tarefa.status.id == 2):
+            qtTarefaEmAndamento += 1
+            data['qtEmAndamento'] = qtTarefaEmAndamento
+        elif (tarefa.status.id == 3):
+            qtTarefaConcluido += 1
+            data['qtConcluido'] = qtTarefaConcluido
 
     return render(request, 'app/listaTarefa.html', data)
 
@@ -134,11 +168,3 @@ def excluirTarefa(request, pk):
     tarefa = Tarefa.objects.get(pk=pk)
     tarefa.delete()
     return redirect('/'+str(tarefa.projeto.usuario.id)+'/projeto/' + str(tarefa.projeto.id))
-
-
-# def marcarConcluido(request, pk):
-#     tarefa = Tarefa.objects.get(pk=pk)
-#     status = Status.objects.filter(id=3)
-#     tarefa.status.nome= status
-#     tarefa.save()
-#     return redirect('/projeto/'+ str(tarefa.projeto.id))
