@@ -67,13 +67,15 @@
                 <div id="app">
                     <br>
                     <h3>{{ projeto.nome }}
-                        <a href="/projeto/excluir/{{projeto.id}}">
+                        <a href="#" data-toggle="modal" data-target="#myAlertaDeleteProjeto"
+                        data-id="{{projeto.id}}">
                             <i class="far fa-times-circle" style="color: red;"></i>
                         </a>
                         <a href="/projeto/editar/{{projeto.id}}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
-                        <a href="/projeto/concluir/{{projeto.id}}">
+                        <a href="#" data-toggle="modal" data-target="#myAlertaConcluirProjeto"
+                        data-id="{{projeto.id}}">
                             <i class="far fa-check-circle" style="color: green;"></i>
                         </a>
                     </h3>
@@ -104,7 +106,8 @@
 
 
                                 <td>
-                                    <a class="btn btn-danger btn-sm" href="/tarefa/excluir/{{tarefa.id}}" id="excluirTarefa">
+                                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#myAlertaTarefa"
+                                                    data-id="{{tarefa.id}}">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -125,7 +128,8 @@
 
 
                                 <td>
-                                    <a class="btn btn-danger btn-sm" href="/tarefa/excluir/{{tarefa.id}}" id="excluirTarefa">
+                                    <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#myAlertaTarefa"
+                                                    data-id="{{tarefa.id}}" id="excluirTarefa">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -147,7 +151,8 @@
 
                                 <td>
 
-                                    <a href="/tarefa/excluir/{{tarefa.id}}" class="btn btn-danger btn-sm">
+                                    <a href="#" data-toggle="modal" data-target="#myAlertaTarefa"
+                                                    data-id="{{tarefa.id}}" class="btn btn-danger btn-sm">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -166,7 +171,7 @@
 
                 </div>
             </div>
-            <div class="col-sm-4" style="margin-top: 80px; position:fixed; z-index: 999; right: 0;">
+            <div class="col-sm-4" style="margin-top: 80px;">
                     <input type="hidden" value="{{qtPendente}}" id="pendente">
                     <input type="hidden" value="{{qtEmAndamento}}" id="andamento">
                     <input type="hidden" value="{{qtConcluido}}" id="concluido">
@@ -178,6 +183,10 @@
     <!--Modals-->
     {% include "app/modalTarefa.html" %}
     {% include "app/modalProjeto.html" %}
+    {% include "app/alertaExcluirTarefa.html" %}
+    {% include "app/alertaExcluirProjeto.html" %}
+    {% include "app/alertaConcluirProjeto.html" %}
+
 
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
@@ -212,26 +221,26 @@
             modal.find('.modal-body input#data_vencimento').val(dtVencimento)
             modal.find('.modal-body textarea').val(descricao)
         })
-        $('#myModalProjeto').on('show.bs.modal', function (event) {
-            var button = $(event.relatedTarget) //Button that triggered the modal
-            var id = button.data('id')
-            var nome = button.data('nome') //Extract info from data-* attributes
-            var descricao = button.data('descricao') //Extract info from data-* attributes
-            var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
+        // $('#myModalProjeto').on('show.bs.modal', function (event) {
+        //     var button = $(event.relatedTarget) //Button that triggered the modal
+        //     var id = button.data('id')
+        //     var nome = button.data('nome') //Extract info from data-* attributes
+        //     var descricao = button.data('descricao') //Extract info from data-* attributes
+        //     var dtVencimento = button.data('vencimento') //Extract info from data-* attributes
 
 
-            //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
-            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            var modal = $(this)
-            if (id != null) {
-                modal.find('.modal-title').text('Editar ' + nome)
-            }
-            modal.find('.modal-body input#id').val(id)
-            modal.find('.modal-body input#nome').val(nome)
-            modal.find('.modal-body input#data_vencimento').val(dtVencimento)
-            modal.find('.modal-body textarea').val(descricao)
+        //     //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
+        //     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+        //     var modal = $(this)
+        //     if (id != null) {
+        //         modal.find('.modal-title').text('Editar ' + nome)
+        //     }
+        //     modal.find('.modal-body input#id').val(id)
+        //     modal.find('.modal-body input#nome').val(nome)
+        //     modal.find('.modal-body input#data_vencimento').val(dtVencimento)
+        //     modal.find('.modal-body textarea').val(descricao)
 
-        })
+        // })
 
         var biscoito = document.getElementsByClassName('biscoito');
         var qtTarefaPendente = document.getElementById('pendente');
@@ -251,10 +260,26 @@
 
             },
         });
+         $('a[data-target="#myAlertaTarefa"]').on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).data('id');
+            $('.delete').attr('href', '/tarefa/excluir/' + id);
+            $('#myAlertaTarefa').modal('show');
+        });
 
+         $('a[data-target="#myAlertaDeleteProjeto"]').on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).data('id');
+            $('.delete').attr('href', '/projeto/excluir/' + id);
+            $('#myAlertaDeleteProjeto').modal('show');
+        });
 
-
-
+        $('a[data-target="#myAlertaConcluirProjeto"]').on('click', function (event) {
+            event.preventDefault();
+            var id = $(this).data('id');
+            $('.ok').attr('href', '/projeto/concluir/' + id);
+            $('#myAlertaConcluirProjeto').modal('show');
+        });
 
 
 

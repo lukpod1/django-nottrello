@@ -3,20 +3,41 @@
   <component name="ChangeListManager">
     <list default="true" id="7331e9ba-e79c-43f1-a6e2-a8e38bf2829e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0002_auto_20181019_2100.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0003_auto_20181019_2218.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0004_auto_20181023_1211.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0005_tarefa_usuario.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0006_auto_20181023_1242.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0007_projeto_data_vencimento.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0008_auto_20181024_0245.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0009_auto_20181024_0248.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0010_remove_projeto_descricao.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0011_projeto_descricao.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0012_auto_20181024_0306.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0013_auto_20181024_1133.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0014_auto_20181024_1619.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0015_auto_20181024_1631.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0016_auto_20181106_1054.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0017_auto_20181106_1101.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0018_auto_20181106_1102.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0019_auto_20181106_1103.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0020_auto_20181106_1104.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0021_auto_20181106_1107.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0022_auto_20181106_1107.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0023_remove_projeto_status.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0024_auto_20181106_1110.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0025_auto_20181106_1113.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/static/app/style/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/app/style/style.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/app/formCadastro.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/formCadastro.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/templates/app/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/app/scripts/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/app/scripts/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/listaTarefa.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/listaTarefa.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/usuarioLogado.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/usuarioLogado.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nottrello/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/nottrello/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/nottrello/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nottrello/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/app/imgs/uploads/jaicke.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/app/imgs/uploads/lucas.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/app/imgs/uploads/matheus.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,45 +49,49 @@
     <session id="-281161621">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="10" />
+          <entry key="project.closed" value="13" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.100" value="1" />
+          <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.26" value="1" />
           <entry key="project.open.time.31" value="1" />
+          <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.40" value="1" />
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.46" value="1" />
           <entry key="project.open.time.52" value="2" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="css" value="8" />
-          <entry key="html" value="43" />
-          <entry key="py" value="39" />
+          <entry key="html" value="47" />
+          <entry key="js" value="2" />
+          <entry key="py" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="8" />
-          <entry key="HTML" value="43" />
-          <entry key="Python" value="39" />
+          <entry key="HTML" value="47" />
+          <entry key="JavaScript" value="2" />
+          <entry key="Python" value="45" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="css" value="336" />
-          <entry key="html" value="3870" />
-          <entry key="py" value="8905" />
+          <entry key="html" value="4030" />
+          <entry key="py" value="10050" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="336" />
-          <entry key="HTML" value="3870" />
-          <entry key="Python" value="8905" />
+          <entry key="HTML" value="4030" />
+          <entry key="Python" value="10050" />
         </counts>
       </usages-collector>
     </session>
@@ -76,51 +101,15 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/app/formPerfil.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="56" column="58" selection-start-line="56" selection-start-column="58" selection-end-line="56" selection-end-column="58" />
-              <folding>
-                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/app/formLogin.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="62">
-              <caret line="11" column="40" lean-forward="true" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/templates/app/usuarioLogado.html">
+        <entry file="file://$PROJECT_DIR$/app/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+            <state relative-caret-position="253">
+              <caret line="43" column="80" selection-start-line="43" selection-start-column="80" selection-end-line="43" selection-end-column="80" />
               <folding>
-                <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <marker date="1541788621531" expanded="true" signature="99:143" ph="..." />
+                <marker date="1541788621531" expanded="true" signature="1540:1543" ph="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/static/app/style/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="178">
-              <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -128,11 +117,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="172">
-              <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
+            <state relative-caret-position="23">
+              <caret line="44" column="71" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
-                <marker date="1540931110855" expanded="true" signature="843:971" ph="..." />
+                <marker date="1541788227075" expanded="true" signature="1133:1361" ph="..." />
               </folding>
             </state>
           </provider>
@@ -141,52 +130,60 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/forms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="268">
-              <caret line="74" selection-start-line="74" selection-end-line="74" />
+            <state relative-caret-position="-19">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
-                <marker date="1540928284313" expanded="true" signature="807:1378" ph="..." />
-                <marker date="1540928284313" expanded="true" signature="2442:2447" ph="..." />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/nottrello/urls.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+              <folding>
+                <element signature="e#633#675#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/static/app/scripts/main.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="274">
+              <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/static/app/scripts/usuarioLogado.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-186" />
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/app/listaTarefa.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="232">
-              <caret line="35" column="77" selection-start-line="35" selection-start-column="77" selection-end-line="35" selection-end-column="77" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/nottrello/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1949">
-              <caret line="129" column="100" selection-start-line="129" selection-start-column="100" selection-end-line="129" selection-end-column="100" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/templates/app/formLoginFail.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
+            <state relative-caret-position="159">
+              <caret line="173" column="58" selection-start-line="173" selection-start-column="58" selection-end-line="173" selection-end-column="58" />
               <folding>
-                <marker date="1540925825949" expanded="true" signature="99:143" ph="..." />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/admin.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="68">
+              <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
             </state>
           </provider>
         </entry>
@@ -214,23 +211,27 @@
         <option value="$PROJECT_DIR$/venv/Lib/site-packages/django/db/models/base.py" />
         <option value="$PROJECT_DIR$/app/templates/app/testemodal.html" />
         <option value="$PROJECT_DIR$/app/templates/app/formTarefa.html" />
-        <option value="$PROJECT_DIR$/app/admin.py" />
         <option value="$PROJECT_DIR$/app/templates/app/ModalTarefa.html" />
         <option value="$PROJECT_DIR$/app/templates/app/formLogin.html" />
         <option value="$PROJECT_DIR$/app/static/app/style/usuarioLogadoStylecss.css" />
         <option value="$PROJECT_DIR$/app/templates/app/modalTarefa.html" />
         <option value="$PROJECT_DIR$/app/templates/app/index.html" />
-        <option value="$PROJECT_DIR$/nottrello/settings.py" />
-        <option value="$PROJECT_DIR$/nottrello/urls.py" />
         <option value="$PROJECT_DIR$/app/templates/app/formCadastro.html" />
-        <option value="$PROJECT_DIR$/app/models.py" />
         <option value="$PROJECT_DIR$/app/forms.py" />
         <option value="$PROJECT_DIR$/app/templates/app/formLoginFail.html" />
-        <option value="$PROJECT_DIR$/app/views.py" />
         <option value="$PROJECT_DIR$/app/templates/app/formPerfil.html" />
-        <option value="$PROJECT_DIR$/app/templates/app/listaTarefa.html" />
         <option value="$PROJECT_DIR$/app/static/app/style/style.css" />
         <option value="$PROJECT_DIR$/app/templates/app/usuarioLogado.html" />
+        <option value="$PROJECT_DIR$/nottrello/settings.py" />
+        <option value="$PROJECT_DIR$/app/templates/app/AlertaExcluirTarefa.html" />
+        <option value="$PROJECT_DIR$/app/templates/app/alertaExcluirProjeto.html" />
+        <option value="$PROJECT_DIR$/app/templates/app/alertaConcluirProjeto.html" />
+        <option value="$PROJECT_DIR$/app/templates/app/listaTarefa.html" />
+        <option value="$PROJECT_DIR$/app/admin.py" />
+        <option value="$PROJECT_DIR$/app/static/app/scripts/main.js" />
+        <option value="$PROJECT_DIR$/nottrello/urls.py" />
+        <option value="$PROJECT_DIR$/app/views.py" />
+        <option value="$PROJECT_DIR$/app/models.py" />
       </list>
     </option>
   </component>
@@ -294,16 +295,7 @@
               <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="imgs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-nottrello" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-nottrello" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="imgs" type="462c0819:PsiDirectoryNode" />
-              <item name="uploads" type="462c0819:PsiDirectoryNode" />
+              <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django-nottrello" type="b2602c69:ProjectViewProjectNode" />
@@ -368,12 +360,11 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" weight="0.32978722" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21352583" />
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.21960486" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.36612904" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.2548387" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="2" />
       <window_info anchor="bottom" id="Message" order="3" />
@@ -442,13 +433,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/admin.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/static/app/style/usuarioLogadoStylecss.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -460,9 +444,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
           <caret line="11" column="35" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-          <folding>
-            <element signature="e#389#396#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -477,19 +458,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
-          <folding>
-            <element signature="e#22#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nottrello/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="29" column="56" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
-          <folding>
-            <element signature="e#633#675#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -500,84 +468,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models.py">
+    <entry file="file://$PROJECT_DIR$/app/templates/app/formPerfil.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="24" column="48" selection-start-line="24" selection-start-column="48" selection-end-line="24" selection-end-column="48" />
-          <folding>
-            <marker date="1540925825949" expanded="true" signature="99:143" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="74" selection-start-line="74" selection-end-line="74" />
-          <folding>
-            <element signature="e#0#24#0" expanded="true" />
-            <marker date="1540928284313" expanded="true" signature="807:1378" ph="..." />
-            <marker date="1540928284313" expanded="true" signature="2442:2447" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nottrello/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1949">
-          <caret line="129" column="100" selection-start-line="129" selection-start-column="100" selection-end-line="129" selection-end-column="100" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/app/formLoginFail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="172">
-          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <marker date="1540931110855" expanded="true" signature="843:971" ph="..." />
-          </folding>
+        <state relative-caret-position="952">
+          <caret line="56" column="58" selection-start-line="56" selection-start-column="58" selection-end-line="56" selection-end-column="58" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/templates/app/formLogin.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="62">
-          <caret line="11" column="40" lean-forward="true" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/app/formPerfil.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="56" column="58" selection-start-line="56" selection-start-column="58" selection-end-line="56" selection-end-column="58" />
-          <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/app/listaTarefa.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="35" column="77" selection-start-line="35" selection-start-column="77" selection-end-line="35" selection-end-column="77" />
+        <state relative-caret-position="187">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/static/app/style/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
+        <state relative-caret-position="238">
           <caret line="14" column="14" selection-start-line="14" selection-start-column="14" selection-end-line="14" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/app/formLoginFail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="18" column="18" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
         </state>
       </provider>
     </entry>
@@ -585,12 +500,104 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
           <caret line="65" column="28" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nottrello/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="129" column="58" selection-start-line="129" selection-start-column="58" selection-end-line="129" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/app/alertaExcluirTarefa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" column="40" selection-start-line="11" selection-start-column="40" selection-end-line="11" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/app/alertaExcluirProjeto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="158">
+          <caret line="11" column="30" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/app/alertaConcluirProjeto.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="20" column="6" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/admin.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="29" selection-start-line="4" selection-start-column="29" selection-end-line="4" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/app/scripts/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/app/scripts/usuarioLogado.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-186" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/app/listaTarefa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="173" column="58" selection-start-line="173" selection-start-column="58" selection-end-line="173" selection-end-column="58" />
           <folding>
-            <element signature="n#style#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#nav#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#1;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/nottrello/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
+          <folding>
+            <element signature="e#633#675#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="44" column="71" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+            <marker date="1541788227075" expanded="true" signature="1133:1361" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="43" column="80" selection-start-line="43" selection-start-column="80" selection-end-line="43" selection-end-column="80" />
+          <folding>
+            <marker date="1541788621531" expanded="true" signature="99:143" ph="..." />
+            <marker date="1541788621531" expanded="true" signature="1540:1543" ph="..." />
           </folding>
         </state>
       </provider>

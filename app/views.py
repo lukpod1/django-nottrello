@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 
-from app.models import Tarefa, Projeto, Status, Usuario
-from .forms import CadastroForm, TarefaForm, ProjetoForm, EditarPerfilForm
+from app.models import Tarefa, Projeto, Status, Usuario, Pergunta, Resposta
+from .forms import CadastroForm, TarefaForm, ProjetoForm, EditarPerfilForm, PerguntaForm, RespostaForm
 from .forms import EntrarForm
 
 import json
@@ -18,6 +18,31 @@ def entrar(request):
         return logar(request)
 
     return render(request, 'app/formLogin.html', {'formLogin': form})
+
+
+def pergunta(request, pk):
+    data= {}
+    data['pergunta'] = Pergunta.objects.get(pk=pk)
+    data['respostas'] = Resposta.objects.filter(pergunta=pk)
+    return render(request, 'app/pergunta.html', data)
+
+def forum(request):
+    data = {}
+    data['perguntas'] = Pergunta.objects.all()
+    data['respostas'] = Resposta.objects.all()
+    form = PerguntaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/forum')
+    data['formPergunta'] = form
+    return render(request, 'app/forum.html', data)
+
+def responderPergunta(request, pk):
+    form = RespostaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/forum/pergunta/' + str(pk))
+    return render(request, 'app/responderPergunta.html', {'formResposta': form})
 
 
 def logar(request):

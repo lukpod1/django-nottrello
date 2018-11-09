@@ -1,6 +1,6 @@
 from django import forms
 
-from .models import Usuario, Tarefa, Projeto
+from .models import Usuario, Tarefa, Projeto, Pergunta, Resposta
 
 
 class CadastroForm(forms.ModelForm):
@@ -72,3 +72,23 @@ class ProjetoForm(forms.ModelForm):
             'detalhes': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
 
         }
+
+class PerguntaForm(forms.ModelForm):
+    class Meta:
+        model = Pergunta   
+        fields = {'titulo','detalhesPergunta', 'usuario'}
+        widgets = {
+            'titulo': forms.TextInput(attrs={'class': 'form-control', 'id': 'titulo'}),            
+            'detalhesPergunta': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
+
+        }     
+
+
+class RespostaForm(forms.ModelForm):
+    class Meta:
+        model = Resposta  
+        fields = {'conteudo', 'usuario', 'pergunta'}
+        widgets = {
+            'titulo': forms.TextInput(attrs={'class': 'form-control', 'id': 'titulo'}),         
+           
+        }           

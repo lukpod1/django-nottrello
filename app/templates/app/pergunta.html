@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Fórum</title>
+</head>
+<body>
+    <h3>Pergunta:{{pergunta.titulo}}</h3>
+    <h3>Criada em:{{pergunta.data_criacao}}</h3>
+    <h3>Detalhes:{{pergunta.detalhesPergunta}}</h3>
+    <h3>Usuario:{{pergunta.usuario}}</h3>
+    {% for resposta in respostas %}
+        <h5>Resposta:{{resposta.conteudo}}</h5>
+        <p>Usuario: {{resposta.usuario}}</p>
+        <p>Data de Criação: {{resposta.data_criacao}}</p>
+        <p>Likes: {{resposta.like}}</p>
+        <p>Deslikes: {{resposta.deslike}}</p>
+    {% endfor %}    
+
+    <a href="/responder/pergunta/{{pergunta.id}}">Responder</a>
+</body>
+</html>
