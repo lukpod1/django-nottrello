@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,22 +11,81 @@
 
     <link rel="stylesheet" type="text/css" href="{% static '/app/style/usuarioLogadoStylecss.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static '/app/style/style.css'%}">
-    <title>Document</title>
+    <title>Fórum - NotTrello</title>
 </head>
+
 <body>
-    <h1>Perguntas:</h1>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
+        <h1 class="logo float-left">
+
+            <img src="{% static '/app/imgs/logo1.jpg'%}" class="logo">
+
+        </h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <strong>
+                    <a class="nav-item nav-link active" href="/forum">Fórum</a>
+                </strong>
+
+            </div>
+            <div class="navbar-nav">
+                <strong>
+                    <a class="nav-item nav-link active" href="/usuario/logout">Sair</a>
+                </strong>
+
+            </div>
+        </div>
+    </nav>
+
+    <center>
+        <h1>Perguntas</h1>
+        <a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModalPergunta">Add pergunta</a>
+
+    </center>
+
+
+
+    {% for pergunta in perguntas %}
+
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <br>
+            <div class="list-group">
+                <a href="/forum/pergunta/{{pergunta.id}}" class="list-group-item list-group-item-action flex-column align-items-start active ">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{pergunta.titulo}}</h5>
+                        <small>{{pergunta.data_criacao}}</small>
+                    </div>
+                    <p class="mb-1">{{pergunta.detalhesPergunta}}</p>
+                    <small>{{pergunta.usuario}}</small>
+                </a>
+            </div>
+
+        </div>
+        <div class="col-sm-2"></div>
+
+    </div>
+
+    {% endfor %}
+    <!-- <h1>Perguntas:</h1>
     <a href="#" data-toggle="modal" data-target="#myModalPergunta">Add pergunta</a>
     {% for pergunta in perguntas %}
-        <ul>
-            <li><a href="/forum/pergunta/{{pergunta.id}}">{{pergunta.titulo}}</a></li>
-        </ul>
-    {% endfor %}
+    <ul>
+        <li><a href="/forum/pergunta/{{pergunta.id}}">{{pergunta.titulo}}</a></li>
+    </ul>
+    {% endfor %} -->
 
     {% include "app/modalPergunta.html" %}
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-    
+
 </body>
+
 </html>

@@ -1,24 +1,90 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Fórum</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/app/style/usuarioLogadoStylecss.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/style/style.css'%}">
+    <title>Fórum - NotTrello</title>
 </head>
+
 <body>
-    <h3>Pergunta:{{pergunta.titulo}}</h3>
-    <h3>Criada em:{{pergunta.data_criacao}}</h3>
-    <h3>Detalhes:{{pergunta.detalhesPergunta}}</h3>
-    <h3>Usuario:{{pergunta.usuario}}</h3>
-    {% for resposta in respostas %}
-        <h5>Resposta:{{resposta.conteudo}}</h5>
-        <p>Usuario: {{resposta.usuario}}</p>
-        <p>Data de Criação: {{resposta.data_criacao}}</p>
-        <p>Likes: {{resposta.like}}</p>
-        <p>Deslikes: {{resposta.deslike}}</p>
-    {% endfor %}    
+    <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
+        <h1 class="logo float-left">
+
+            <img src="{% static '/app/imgs/logo1.jpg'%}" class="logo">
+
+        </h1>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <strong>
+                    <a class="nav-item nav-link active" href="/forum">Fórum</a>
+                </strong>
+
+            </div>
+            <div class="navbar-nav">
+                <strong>
+                    <a class="nav-item nav-link active" href="/usuario/logout">Sair</a>
+                </strong>
+
+            </div>
+        </div>
+    </nav>
+
+
+    <div class="accordion" id="accordionExample">
+        <div class="list-group">
+
+            <div class="list-group">
+                <a href="#" id="headingOne" class="list-group-item list-group-item-action flex-column align-items-start active "
+                    href="#" class="btn btn-" type="button" data-toggle="collapse" data-target="#collapseOne"
+                    aria-expanded="true" aria-controls="collapseOne">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1">{{pergunta.titulo}}</h5>
+                        <small>{{pergunta.data_criacao}}</small>
+                    </div>
+                    <p class="mb-1">{{pergunta.detalhesPergunta}}</p>
+                    <small>{{pergunta.usuario}}</small>
+                </a>
+            </div>
+            
+
+
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div class="card-body">
+                        {% for resposta in respostas %}
+                        <h5>Resposta:{{resposta.conteudo}}</h5>
+                        <p>Usuario: {{resposta.usuario}}</p>
+                        <p>Data de Criação: {{resposta.data_criacao}}</p>
+                        <p>Likes: {{resposta.like}}</p>
+                        <p>Deslikes: {{resposta.deslike}}</p>
+                        {% endfor %}
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    
 
     <a href="/responder/pergunta/{{pergunta.id}}">Responder</a>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
+
 </html>
