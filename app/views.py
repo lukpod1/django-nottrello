@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect
 from app.models import Tarefa, Projeto, Status, Usuario, Pergunta, Resposta
 from .forms import CadastroForm, TarefaForm, ProjetoForm, EditarPerfilForm, PerguntaForm, RespostaForm
 from .forms import EntrarForm
+from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
 import json
 
@@ -114,11 +115,28 @@ def usuarioLogado(request, pk_usuario):
 def listarTarefaProjeto(request, pk_usuario, pk_projeto):
     data = {}
     # Tarefas filtradas por projeto
-    data['tarefas'] = Tarefa.objects.filter(projeto=pk_projeto)
+    tarefas = Tarefa.objects.filter(projeto=pk_projeto)
     # Projetos filtrados por usuario
     data['projetos'] = Projeto.objects.filter(usuario=pk_usuario)
     # Projeto específico
     data['projeto'] = Projeto.objects.get(pk=pk_projeto)
+
+    
+    paginator = Paginator(tarefas, 10) # Mostra 10 tarefas por página
+  
+    # Esteja certo de que o `page request` é um inteiro. Se não, mostre a primeira página.
+    try:
+        page = int(request.GET.get('page', '1'))
+    except ValueError:
+        page = 1
+
+    # Se o page request (9999) está fora da lista, mostre a última página.
+    try:
+        tarefas = paginator.page(page)
+    except (EmptyPage, InvalidPage):
+        tarefas = paginator.page(paginator.num_pages)
+
+    data['tarefas'] = tarefas    
 
     formTarefa = TarefaForm(request.POST or None)
     if formTarefa.is_valid():

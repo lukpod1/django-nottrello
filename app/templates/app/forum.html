@@ -40,34 +40,45 @@
             </div>
         </div>
     </nav>
+    <div class="row">
+        <div class="col-md-12">
+            <center>
 
-    <center>
-        <h1>Perguntas</h1>
-        <a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModalPergunta">Add pergunta</a>
+                    <h1>Perguntas</h1>
+                    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModalPergunta">Add pergunta</a>
+        
+            </center>
+            
+        </div>
 
-    </center>
+
+
+    </div>
 
 
 
     {% for pergunta in perguntas %}
 
     <div class="row">
-        <div class="col-sm-2"></div>
-        <div class="col-sm-8">
+        <div class="col-md-2">
+            
+        </div>
+        <div class="col-md-8">
             <br>
-            <div class="list-group">
+            <div class="list-group"><img class="avatar" src="/media/{{pergunta.usuario.avatar}}" style="width:30px; float: right;">
                 <a href="/forum/pergunta/{{pergunta.id}}" class="list-group-item list-group-item-action flex-column align-items-start active ">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">{{pergunta.titulo}}</h5>
                         <small>{{pergunta.data_criacao}}</small>
                     </div>
                     <p class="mb-1">{{pergunta.detalhesPergunta}}</p>
-                    <small>{{pergunta.usuario}}</small>
+
+                    <small>Autor: {{pergunta.usuario}}</small>
                 </a>
             </div>
 
         </div>
-        <div class="col-sm-2"></div>
+        
 
     </div>
 

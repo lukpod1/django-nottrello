@@ -81,6 +81,7 @@ class PerguntaForm(forms.ModelForm):
             'titulo': forms.TextInput(attrs={'class': 'form-control', 'id': 'titulo'}),            
             'detalhesPergunta': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
 
+
         }     
 
 
@@ -89,6 +90,7 @@ class RespostaForm(forms.ModelForm):
         model = Resposta  
         fields = {'conteudo', 'usuario', 'pergunta'}
         widgets = {
-            'titulo': forms.TextInput(attrs={'class': 'form-control', 'id': 'titulo'}),         
+            'titulo': forms.TextInput(attrs={'class': 'form-control', 'id': 'titulo'}),  
+                   
            
         }           

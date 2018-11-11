@@ -41,46 +41,58 @@
         </div>
     </nav>
 
+    <div class="row">
+        <div class="col-md-2">
 
-    <div class="accordion" id="accordionExample">
-        <div class="list-group">
+        </div>
+        <div class="col-md-8">
+            <div class="accordion" id="accordionExample">
+                <div class="list-group">
 
-            <div class="list-group">
-                <a href="#" id="headingOne" class="list-group-item list-group-item-action flex-column align-items-start active "
-                    href="#" class="btn btn-" type="button" data-toggle="collapse" data-target="#collapseOne"
-                    aria-expanded="true" aria-controls="collapseOne">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{pergunta.titulo}}</h5>
-                        <small>{{pergunta.data_criacao}}</small>
+                    <div class="list-group">
+                        <a href="#" id="headingOne" class="list-group-item list-group-item-action flex-column align-items-start active "
+                            href="#" class="btn btn-" type="button" data-toggle="collapse" data-target="#collapseOne"
+                            aria-expanded="true" aria-controls="collapseOne">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{pergunta.titulo}}</h5>
+                                <small>{{pergunta.data_criacao}}</small>
+                            </div>
+                            <p class="mb-1">{{pergunta.detalhesPergunta}}</p>
+                            <small>{{pergunta.usuario}}</small>
+                            
+                        </a>
+                        <a href="/responder/pergunta/{{pergunta.id}}">Responder</a>
                     </div>
-                    <p class="mb-1">{{pergunta.detalhesPergunta}}</p>
-                    <small>{{pergunta.usuario}}</small>
-                </a>
-            </div>
-            
 
 
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                <div class="card-body">
-                        {% for resposta in respostas %}
-                        <h5>Resposta:{{resposta.conteudo}}</h5>
-                        <p>Usuario: {{resposta.usuario}}</p>
-                        <p>Data de Criação: {{resposta.data_criacao}}</p>
-                        <p>Likes: {{resposta.like}}</p>
-                        <p>Deslikes: {{resposta.deslike}}</p>
-                        {% endfor %}
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+                            {% for resposta in respostas %}
+                            <h5>Resposta:{{resposta.conteudo}}</h5>
+                            <p>Usuario: {{resposta.usuario}}</p>
+
+                            <p>Data de Criação: {{resposta.data_criacao}}</p>
+                            <p>Likes: {{resposta.like}}</p>
+                            <p>Deslikes: {{resposta.deslike}}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
                 </div>
             </div>
+
         </div>
-
-
     </div>
 
 
 
-    
 
-    <a href="/responder/pergunta/{{pergunta.id}}">Responder</a>
+
+
+
+
+
+ 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 

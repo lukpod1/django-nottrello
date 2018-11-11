@@ -67,15 +67,13 @@
                 <div id="app">
                     <br>
                     <h3>{{ projeto.nome }}
-                        <a href="#" data-toggle="modal" data-target="#myAlertaDeleteProjeto"
-                        data-id="{{projeto.id}}">
+                        <a href="#" data-toggle="modal" data-target="#myAlertaDeleteProjeto" data-id="{{projeto.id}}">
                             <i class="far fa-times-circle" style="color: red;"></i>
                         </a>
                         <a href="/projeto/editar/{{projeto.id}}">
                             <i class="fas fa-pencil-alt"></i>
                         </a>
-                        <a href="#" data-toggle="modal" data-target="#myAlertaConcluirProjeto"
-                        data-id="{{projeto.id}}">
+                        <a href="#" data-toggle="modal" data-target="#myAlertaConcluirProjeto" data-id="{{projeto.id}}">
                             <i class="far fa-check-circle" style="color: green;"></i>
                         </a>
                     </h3>
@@ -83,7 +81,21 @@
                     <h4>Tarefas</h4>
 
                     <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+                    <div class="pagination">
+                            <span class="step-links">
+                                {% if tarefas.has_previous %}
+                                <a href="?page={{ tarefas.previous_page_number }}">anterior</a>
+                                {% endif %}
 
+                                <span class="current">
+                                    Página {{ tarefas.number }} de {{ tarefas.paginator.num_pages }}.
+                                </span>
+
+                                {% if tarefas.has_next %}
+                                <a href="?page={{ tarefas.next_page_number }}">próxima</a>
+                                {% endif %}
+                            </span>
+                        </div>
                     <table class=" table table-hover" style="width:100%">
 
                         <tr>
@@ -93,11 +105,13 @@
                             <th>Vencimento</th>
                             <th>Status</th>
 
-                        </tr>
+                        </tr>                     
+
                         {% for tarefa in tarefas %}
                         <tbody id="myTable">
                             {% if tarefa.status.id == 1%}
                             <tr>
+
                                 <td style="border-left: 12px solid yellow">{{tarefa.nome}}</td>
                                 <td id="descricao">{{tarefa.descricao}}</td>
                                 <td>{{tarefa.data_criacao}}</td>
@@ -107,7 +121,7 @@
 
                                 <td>
                                     <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#myAlertaTarefa"
-                                                    data-id="{{tarefa.id}}">
+                                        data-id="{{tarefa.id}}">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -116,7 +130,9 @@
                                         <i class="fas fa-edit"></i>
                                     </a>
                                 </td>
+                               
                             </tr>
+                            
 
                             {% elif tarefa.status.id == 2%}
                             <tr>
@@ -129,7 +145,7 @@
 
                                 <td>
                                     <a class="btn btn-danger btn-sm" href="#" data-toggle="modal" data-target="#myAlertaTarefa"
-                                                    data-id="{{tarefa.id}}" id="excluirTarefa">
+                                        data-id="{{tarefa.id}}" id="excluirTarefa">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -151,8 +167,8 @@
 
                                 <td>
 
-                                    <a href="#" data-toggle="modal" data-target="#myAlertaTarefa"
-                                                    data-id="{{tarefa.id}}" class="btn btn-danger btn-sm">
+                                    <a href="#" data-toggle="modal" data-target="#myAlertaTarefa" data-id="{{tarefa.id}}"
+                                        class="btn btn-danger btn-sm">
                                         <i class="far fa-trash-alt"></i>
                                     </a>
                                 </td>
@@ -166,17 +182,19 @@
                             {% endif %}
 
                         </tbody>
+                   
                         {% endfor %}
                     </table>
+                    
 
                 </div>
             </div>
             <div class="col-sm-4" style="margin-top: 80px;">
-                    <input type="hidden" value="{{qtPendente}}" id="pendente">
-                    <input type="hidden" value="{{qtEmAndamento}}" id="andamento">
-                    <input type="hidden" value="{{qtConcluido}}" id="concluido">
-                    <canvas class="biscoito" width="200" height="100"></canvas>
-                </div>
+                <input type="hidden" value="{{qtPendente}}" id="pendente">
+                <input type="hidden" value="{{qtEmAndamento}}" id="andamento">
+                <input type="hidden" value="{{qtConcluido}}" id="concluido">
+                <canvas class="biscoito" width="200" height="100"></canvas>
+            </div>
         </div>
     </div>
 
@@ -188,7 +206,7 @@
     {% include "app/alertaConcluirProjeto.html" %}
 
 
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -260,14 +278,14 @@
 
             },
         });
-         $('a[data-target="#myAlertaTarefa"]').on('click', function (event) {
+        $('a[data-target="#myAlertaTarefa"]').on('click', function (event) {
             event.preventDefault();
             var id = $(this).data('id');
             $('.delete').attr('href', '/tarefa/excluir/' + id);
             $('#myAlertaTarefa').modal('show');
         });
 
-         $('a[data-target="#myAlertaDeleteProjeto"]').on('click', function (event) {
+        $('a[data-target="#myAlertaDeleteProjeto"]').on('click', function (event) {
             event.preventDefault();
             var id = $(this).data('id');
             $('.delete').attr('href', '/projeto/excluir/' + id);
