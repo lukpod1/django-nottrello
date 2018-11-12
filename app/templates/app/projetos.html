@@ -18,9 +18,13 @@
 
         <tr>
             <td>
-                <a href="/{{projeto.usuario.id}}/projeto/{{projeto.id}}">
+                <a href="/projeto/{{projeto.id}}">
                     <h5>{{projeto.nome}}</h5>
                 </a>
+                <p>Concluir até: {{projeto.data_vencimento}}</p>
+                
+                <p>Status: {{projeto.status}} </p>
+                
 
                 <small>{{projeto.detalhes}}</small>
             </td>

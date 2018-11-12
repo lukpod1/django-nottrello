@@ -15,57 +15,28 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
-        <h1 class="logo float-left">
-
-            <img src="{% static '/app/imgs/logo1.jpg'%}" class="logo">
-
-        </h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <strong>
-                    <a class="nav-item nav-link active" href="/forum">Fórum</a>
-                </strong>
-
-            </div>
-            <div class="navbar-nav">
-                <strong>
-                    <a class="nav-item nav-link active" href="/usuario/logout">Sair</a>
-                </strong>
-
-            </div>
-        </div>
-    </nav>
-    <div class="row">
-        <div class="col-md-12">
-            <center>
-
-                    <h1>Perguntas</h1>
-                    <a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModalPergunta">Add pergunta</a>
-        
-            </center>
-            
-        </div>
-
-
-
-    </div>
-
-
-
-    {% for pergunta in perguntas %}
-
+    <!-- navbar -->
+    {% include "app/navbar.html" %}
     <div class="row">
         <div class="col-md-2">
-            
+
         </div>
         <div class="col-md-8">
+
             <br>
-            <div class="list-group"><img class="avatar" src="/media/{{pergunta.usuario.avatar}}" style="width:30px; float: right;">
+            <h1>Fórum</h1>
+            <p>Aqui você encontra as dúvidas de toda comunidade sobre qualquer assunto.</p>
+            <p>Compartilhe seu conhecimento!</p>
+            
+            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModalPergunta">Adicionar pergunta</a>
+            <br>
+            <br>
+
+            {% for pergunta in perguntas %}
+
+
+            <div class="list-group">
+                
                 <a href="/forum/pergunta/{{pergunta.id}}" class="list-group-item list-group-item-action flex-column align-items-start active ">
                     <div class="d-flex w-100 justify-content-between">
                         <h5 class="mb-1">{{pergunta.titulo}}</h5>
@@ -73,26 +44,25 @@
                     </div>
                     <p class="mb-1">{{pergunta.detalhesPergunta}}</p>
 
-                    <small>Autor: {{pergunta.usuario}}</small>
+                    <small><img class="avatar" src="/media/{{pergunta.usuario.avatar}}" style="width:30px;">  {{pergunta.usuario}}</small>
                 </a>
             </div>
+            {% endfor %}
 
         </div>
-        
+        <div class="col-md-2">
+
+        </div>
+
 
     </div>
 
-    {% endfor %}
-    <!-- <h1>Perguntas:</h1>
-    <a href="#" data-toggle="modal" data-target="#myModalPergunta">Add pergunta</a>
-    {% for pergunta in perguntas %}
-    <ul>
-        <li><a href="/forum/pergunta/{{pergunta.id}}">{{pergunta.titulo}}</a></li>
-    </ul>
-    {% endfor %} -->
+    
+
 
     {% include "app/modalPergunta.html" %}
-
+    {% include "app/modalProjeto.html" %}
+    {% include "app/modalTarefa.html" %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>

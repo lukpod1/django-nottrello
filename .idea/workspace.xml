@@ -3,10 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="7331e9ba-e79c-43f1-a6e2-a8e38bf2829e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/.vscode/settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/static/app/scripts/usuarioLogado.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/static/app/scripts/usuarioLogado.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/alertaExcluirProjeto.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/alertaExcluirProjeto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/alertaExcluirTarefa.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/alertaExcluirTarefa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/formPerfil.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/formPerfil.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/formProjeto.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/formProjeto.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/formTarefa.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/formTarefa.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/forum.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/forum.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/listaTarefa.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/listaTarefa.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/overview.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/overview.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/templates/app/pergunta.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/pergunta.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/projetos.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/projetos.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/templates/app/usuarioLogado.html" beforeDir="false" afterPath="$PROJECT_DIR$/app/templates/app/usuarioLogado.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nottrello/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/nottrello/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +43,9 @@
           <entry key="project.open.time.42" value="1" />
           <entry key="project.open.time.44" value="1" />
           <entry key="project.open.time.46" value="1" />
+          <entry key="project.open.time.49" value="1" />
           <entry key="project.open.time.52" value="2" />
-          <entry key="project.opened" value="15" />
+          <entry key="project.opened" value="16" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -54,14 +68,14 @@
         <counts>
           <entry key="css" value="336" />
           <entry key="html" value="4030" />
-          <entry key="py" value="10157" />
+          <entry key="py" value="10339" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="336" />
           <entry key="HTML" value="4030" />
-          <entry key="Python" value="10157" />
+          <entry key="Python" value="10339" />
         </counts>
       </usages-collector>
     </session>
@@ -74,24 +88,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-301">
-              <caret line="44" column="71" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-                <marker date="1541788227075" expanded="true" signature="1133:1361" ph="..." />
-              </folding>
+            <state relative-caret-position="13">
+              <caret line="103" column="76" lean-forward="true" selection-start-line="103" selection-start-column="76" selection-end-line="103" selection-end-column="76" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/forms.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="248">
-              <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="83" />
+              <caret line="87" selection-start-line="87" selection-end-line="88" />
               <folding>
                 <element signature="e#0#24#0" expanded="true" />
-                <marker date="1541879807641" expanded="true" signature="3250:3255" ph="..." />
+                <marker date="1541962832807" expanded="true" signature="3549:3554" ph="..." />
               </folding>
             </state>
           </provider>
@@ -100,7 +110,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nottrello/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="561">
               <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
               <folding>
                 <element signature="e#633#675#0" expanded="true" />
@@ -112,13 +122,13 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/static/app/scripts/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="274">
+            <state relative-caret-position="578">
               <caret line="34" selection-start-line="34" selection-end-line="34" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/static/app/scripts/usuarioLogado.js">
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
@@ -126,11 +136,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/templates/app/listaTarefa.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="173" column="58" selection-start-line="173" selection-start-column="58" selection-end-line="173" selection-end-column="58" />
-              <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="295">
+              <caret line="192" column="75" lean-forward="true" selection-start-line="189" selection-start-column="16" selection-end-line="192" selection-end-column="75" />
             </state>
           </provider>
         </entry>
@@ -147,11 +154,11 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
+            <state relative-caret-position="578">
               <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
               <folding>
-                <marker date="1541878385026" expanded="true" signature="99:143" ph="..." />
-                <marker date="1541878385026" expanded="true" signature="1540:1543" ph="..." />
+                <marker date="1541971965767" expanded="true" signature="99:143" ph="..." />
+                <marker date="1541971965767" expanded="true" signature="1540:1543" ph="..." />
               </folding>
             </state>
           </provider>
@@ -198,9 +205,9 @@
         <option value="$PROJECT_DIR$/app/admin.py" />
         <option value="$PROJECT_DIR$/app/static/app/scripts/main.js" />
         <option value="$PROJECT_DIR$/nottrello/urls.py" />
-        <option value="$PROJECT_DIR$/app/views.py" />
         <option value="$PROJECT_DIR$/app/models.py" />
         <option value="$PROJECT_DIR$/app/forms.py" />
+        <option value="$PROJECT_DIR$/app/views.py" />
       </list>
     </option>
   </component>
@@ -329,9 +336,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1376" height="754" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" weight="0.32978722" />
-      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.22264437" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.2256839" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info active="true" anchor="bottom" id="Terminal" order="0" visible="true" weight="0.2548387" />
       <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
@@ -500,25 +508,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views.py">
+    <entry file="file://$PROJECT_DIR$/nottrello/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-301">
-          <caret line="44" column="71" selection-start-line="44" selection-start-column="71" selection-end-line="44" selection-end-column="71" />
+        <state relative-caret-position="561">
+          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
-            <marker date="1541788227075" expanded="true" signature="1133:1361" ph="..." />
+            <element signature="e#633#675#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models.py">
+    <entry file="file://$PROJECT_DIR$/app/static/app/scripts/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
-          <folding>
-            <marker date="1541878385026" expanded="true" signature="99:143" ph="..." />
-            <marker date="1541878385026" expanded="true" signature="1540:1543" ph="..." />
-          </folding>
+        <state relative-caret-position="578">
+          <caret line="34" selection-start-line="34" selection-end-line="34" />
         </state>
       </provider>
     </entry>
@@ -529,32 +532,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/templates/app/listaTarefa.html">
+    <entry file="file://$PROJECT_DIR$/app/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="173" column="58" selection-start-line="173" selection-start-column="58" selection-end-line="173" selection-end-column="58" />
+        <state relative-caret-position="578">
+          <caret line="34" column="39" selection-start-line="34" selection-start-column="39" selection-end-line="34" selection-end-column="39" />
           <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/app/scripts/usuarioLogado.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/static/app/scripts/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="34" selection-start-line="34" selection-end-line="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/nottrello/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="37" column="40" selection-start-line="37" selection-start-column="40" selection-end-line="37" selection-end-column="40" />
-          <folding>
-            <element signature="e#633#675#0" expanded="true" />
+            <marker date="1541971965767" expanded="true" signature="99:143" ph="..." />
+            <marker date="1541971965767" expanded="true" signature="1540:1543" ph="..." />
           </folding>
         </state>
       </provider>
@@ -562,13 +546,30 @@
     <entry file="file://$PROJECT_DIR$/app/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="248">
-          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="83" />
+          <caret line="87" selection-start-line="87" selection-end-line="88" />
           <folding>
             <element signature="e#0#24#0" expanded="true" />
-            <marker date="1541879807641" expanded="true" signature="3250:3255" ph="..." />
+            <marker date="1541962832807" expanded="true" signature="3549:3554" ph="..." />
           </folding>
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/templates/app/listaTarefa.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="295">
+          <caret line="192" column="75" lean-forward="true" selection-start-line="189" selection-start-column="16" selection-end-line="192" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13">
+          <caret line="103" column="76" lean-forward="true" selection-start-line="103" selection-start-column="76" selection-end-line="103" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/static/app/scripts/usuarioLogado.js">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
   </component>
 </project>

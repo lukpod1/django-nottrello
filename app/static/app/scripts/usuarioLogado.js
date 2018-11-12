@@ -61,7 +61,7 @@ var qtProjetoEmAndamento = document.getElementById('andamento');
 var qtProjetoConcluido = document.getElementById('concluido');
 
 var bar = new Chart(ctx, {
-    type: 'horizontalBar',
+    type: 'pie',
     data: {
         labels: ['Pendente', 'Em Andamento', 'Concluído'],
         datasets: [{
@@ -71,7 +71,7 @@ var bar = new Chart(ctx, {
         }]
     },
     options: {
-        legend: { display: false },
+        legend: { display: false},
         title: {
           display: true,
           text: 'Quantidade de Projetos'

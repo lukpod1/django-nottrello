@@ -33,7 +33,7 @@ class EditarPerfilForm(forms.ModelForm):
             'nomeUsuario': forms.TextInput(
                 attrs={'class': 'form-control', 'required': 'true'}),
             'senha': forms.TextInput(
-                attrs={'class': 'form-control'}),
+                attrs={'class': 'form-control', 'type':'password'}),
             'avatar': forms.FileInput(attrs={'class': 'form-control'}),
         }
 
@@ -59,6 +59,9 @@ class TarefaForm(forms.ModelForm):
             'nome': forms.TextInput(attrs={'class': 'form-control', 'id': 'nome'}),
             'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA', 'class': 'form-control', 'id': 'data_vencimento'}),
             'descricao': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
+            'status' : forms.Select(attrs={'class': 'form-control'}),
+            'projeto' : forms.Select(attrs={'class': 'form-control'}),
+
         }
 
 
@@ -70,6 +73,8 @@ class ProjetoForm(forms.ModelForm):
             'nome': forms.TextInput(attrs={'class': 'form-control', 'id': 'nome'}),
             'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA', 'class': 'form-control', 'id': 'data_vencimento'}),
             'detalhes': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
+            'usuario':forms.Select(attrs={'class':'form-control'}),
+            'status' : forms.Select(attrs={'class': 'form-control'}),
 
         }
 

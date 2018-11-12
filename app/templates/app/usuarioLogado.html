@@ -15,39 +15,12 @@
 </head>
 
 <body style="background-color:whitesmoke">
-<div>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
-        <h1 class="logo float-left">
-
-            <img src="{% static '/app/imgs/logo1.jpg'%}" class="logo">
-
-        </h1>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
-                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <strong>
-                    <a class="nav-item nav-link active" href="/forum">Fórum</a>
-                </strong>
-
-            </div>
-            <div class="navbar-nav">
-                <strong>
-                    <a class="nav-item nav-link active" href="/usuario/logout">Sair</a>
-                </strong>
-
-            </div>
-        </div>
-    </nav>
-
-
-</div>
+<!-- navbar -->
+{% include "app/navbar.html" %}
 
 <!-- content -->
 <div class="container-fluid text-left">
-    <div class="row content" style="margin:30px;  background-color:white; padding:20px; border-radius:22px;">
+    <div class="row content" style="margin:30px;  background-color:white; padding:20px; border-radius:22px;height: auto;">
         <div class="col-sm-3" style="margin-left:40px">
             <ul class="sidebar navbar-nav">
                     <li>
@@ -63,7 +36,7 @@
                 <li>
                     <h4>{{usuario.nomeCompleto}}</h4>
                     <h6>{{usuario.nomeUsuario}}</h6>
-                    <h6><a href="/usuario/perfil/{{usuario.id}}">Editar Perfil</a></h6>
+                    <h6><a href="/usuario/perfil/">Editar Perfil</a></h6>
                 </li>
             </ul>
 
@@ -103,10 +76,13 @@
     </div>
 </div>
 
+
 <!--Modals-->
 {% include "app/modalProjeto.html" %}
+{% include "app/modalTarefa.html" %}
 
-<script src="https://cdn.jsdelivr.net/npm/promise-polyfill@8/dist/polyfill.js"></script>
+
+            
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
@@ -121,22 +97,8 @@
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        });
-
-            // $('#myModal').on('show.bs.modal', function (event) {
-            //     var button = $(event.relatedTarget) //Button that triggered the modal
-            //     var recipientNome = button.data('nome') //Extract info from data-* attributes
-            //     var recipientDescricao = button.data('descricao') //Extract info from data-* attributes
-            //     var recipientDtVencimento = button.data('vencimento') //Extract info from data-* attributes
-
-            //     //If necessary, you could initiate an AJAX request here(and then do the updating in a callback).
-            //     // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-            //     var modal = $(this)
-            //     modal.find('.modal-title').text('Editar ' + recipientNome)
-            //     modal.find('.modal-body input#id_nome').val(recipientNome)
-            //     modal.find('.modal-body input#id_data_vencimento').val(recipientDtVencimento)
-            //     modal.find('.modal-body textarea').val(recipientDescricao)
-            // })
+        });      
+        
 
 
 
