@@ -17,47 +17,82 @@
 <body>
     <!-- navbar -->
     {% include "app/navbar.html" %}
-    <div class="row">
-        <div class="col-md-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
 
-        </div>
-        <div class="col-md-8">
+                <br>
+                <h1>Fórum</h1>
+                <p>Aqui você encontra as dúvidas de toda comunidade sobre qualquer assunto.</p>
+                <p>Compartilhe seu conhecimento!</p>
 
-            <br>
-            <h1>Fórum</h1>
-            <p>Aqui você encontra as dúvidas de toda comunidade sobre qualquer assunto.</p>
-            <p>Compartilhe seu conhecimento!</p>
-            
-            <a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModalPergunta">Adicionar pergunta</a>
-            <br>
-            <br>
+                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModalPergunta">Adicionar
+                    pergunta</a>
+                <br>
+                <br>
+                <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
 
-            {% for pergunta in perguntas %}
+                <br>
+
+                {% for pergunta in perguntas %}
 
 
-            <div class="list-group">
-                
-                <a href="/forum/pergunta/{{pergunta.id}}" class="list-group-item list-group-item-action flex-column align-items-start active ">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h5 class="mb-1">{{pergunta.titulo}}</h5>
-                        <small>{{pergunta.data_criacao}}</small>
-                    </div>
-                    <p class="mb-1">{{pergunta.detalhesPergunta}}</p>
+                <table id="myTable" class="list-group">
 
-                    <small><img class="avatar" src="/media/{{pergunta.usuario.avatar}}" style="width:30px;">  {{pergunta.usuario}}</small>
-                </a>
+                    <tr id="linha" class="list-group-item ">
+
+                        <td>
+                            
+                            <a href="/forum/pergunta/{{pergunta.id}}" class="list-group-item-action ">
+                                <div class="d-flex w-100 justify-content-end">
+                                    <h5 class="mb-2">{{pergunta.titulo}}</h5>
+                                    
+
+                                </div>
+
+                                <div class=" w-100 justify-content-end">
+                                    <p class="mb-1">{{pergunta.detalhesPergunta}}</p>
+
+                                </div>
+
+
+
+
+
+                                <small><img class="avatar" src="/media/{{pergunta.usuario.avatar}}" style="width:30px;">
+                                    {{pergunta.usuario}}</small>
+
+
+                            </a>
+                            
+
+                        </td>
+                        
+                       
+                    </tr>
+
+
+                </table>
+
+
+
+
+                {% endfor %}
+
             </div>
-            {% endfor %}
-
+            <div class="col-md-2"></div>
         </div>
-        <div class="col-md-2">
-
-        </div>
-
-
     </div>
 
-    
+
+
+
+
+
+
+
+
 
 
     {% include "app/modalPergunta.html" %}
@@ -66,6 +101,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });  
+    </script>
 
 </body>
 

@@ -73,7 +73,7 @@ class ProjetoForm(forms.ModelForm):
             'nome': forms.TextInput(attrs={'class': 'form-control', 'id': 'nome'}),
             'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA', 'class': 'form-control', 'id': 'data_vencimento'}),
             'detalhes': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
-            'usuario':forms.Select(attrs={'class':'form-control'}),
+            'usuario':forms.HiddenInput(attrs={'class':'form-control', }),
             'status' : forms.Select(attrs={'class': 'form-control'}),
 
         }
@@ -95,7 +95,9 @@ class RespostaForm(forms.ModelForm):
         model = Resposta  
         fields = {'conteudo', 'usuario', 'pergunta'}
         widgets = {
-            'titulo': forms.TextInput(attrs={'class': 'form-control', 'id': 'titulo'}),  
+            'conteudo': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}), 
+            'usuario': forms.Select(attrs={'class': 'form-control' }),  
+            'pergunta': forms.Select(attrs={'class': 'form-control'}),   
                    
            
         }           

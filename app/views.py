@@ -26,6 +26,13 @@ def pergunta(request, pk):
     data['pergunta'] = Pergunta.objects.get(pk=pk)
     data['respostas'] = Resposta.objects.filter(pergunta=pk)
     data['usuario'] = Usuario.objects.get(pk=request.session['usuario_id'])
+    data['qtResposta'] = len(Resposta.objects.filter(pergunta=pk))
+
+    form = RespostaForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect('/forum/pergunta/' + str(pk))
+    data['formResposta'] = form
     return render(request, 'app/pergunta.html', data)
 
 def forum(request):
@@ -40,12 +47,14 @@ def forum(request):
     data['formPergunta'] = form
     return render(request, 'app/forum.html', data)
 
-def responderPergunta(request, pk):
-    form = RespostaForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-        return redirect('/forum/pergunta/' + str(pk))
-    return render(request, 'app/responderPergunta.html', {'formResposta': form})
+# def responderPergunta(request, pk):
+#     form = RespostaForm(request.POST or None)
+#     if form.is_valid():
+#         form.save()
+#         return redirect('/forum/pergunta/' + str(pk))
+
+
+#     return render(request, 'app/responderPergunta.html', {'formResposta': form})
 
 
 def logar(request):

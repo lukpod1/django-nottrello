@@ -15,61 +15,78 @@
 </head>
 
 <body>
-     <!-- navbar -->
-     {% include "app/navbar.html" %}
+    <!-- navbar -->
+    {% include "app/navbar.html" %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <br>
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
 
-    <div class="row">
-        <div class="col-md-2">
 
-        </div>
-        <div class="col-md-8">
-            <div class="accordion" id="accordionExample">
-                <div class="list-group">
-
-                    <div class="list-group">
-                        <a href="#" id="headingOne" class="list-group-item list-group-item-action flex-column align-items-start active "
-                            href="#" class="btn btn-" type="button" data-toggle="collapse" data-target="#collapseOne"
-                            aria-expanded="true" aria-controls="collapseOne">
+                        <a href="#" class="list-group-item-action flex-column align-items-start ">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">{{pergunta.titulo}}</h5>
                                 <small>{{pergunta.data_criacao}}</small>
                             </div>
-                            <p class="mb-1">{{pergunta.detalhesPergunta}}</p>
-                            <small>{{pergunta.usuario}}</small>
-                            
+
+                            <div class=" w-100 justify-content-end">
+                                <p class="mb-1">{{pergunta.detalhesPergunta}}</p>
+
+                            </div>
+
+                            <small><img class="avatar" src="/media/{{pergunta.usuario.avatar}}" style="width:30px;">
+                                {{pergunta.usuario}}</small>
+
                         </a>
-                        <a href="/responder/pergunta/{{pergunta.id}}">Responder</a>
-                    </div>
 
 
 
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body">
-                            {% for resposta in respostas %}
-                            <h5>Resposta:{{resposta.conteudo}}</h5>
-                            <p>Usuario: {{resposta.usuario}}</p>
+                    </li>
+                </ul>
+                <a href="#" data-toggle="modal" data-target="#myModalResposta">Responder</a>
+                <hr>
+                <span class="badge badge-primary badge-pill">{{qtResposta}} Respostas</span>
+                <hr>
+                <ul class="list-group">
+                    {% for resposta in respostas %}
 
-                            <p>Data de Criação: {{resposta.data_criacao}}</p>
-                            <p>Likes: {{resposta.like}}</p>
-                            <p>Deslikes: {{resposta.deslike}}</p>
-                            {% endfor %}
+                    <li class="list-group-item list-group-item-light">
+                        <div class="d-flex w-100 justify-content-between">
+                            <p class="mb-1"><small><img class="avatar" src="/media/{{resposta.usuario.avatar}}" style="width:30px;">
+                                    {{resposta.usuario}}
+                                </small></p>
+                            <p>{{resposta.data_criacao}}</p>
                         </div>
-                    </div>
-                </div>
-            </div>
 
+
+                        <p>{{resposta.conteudo}}</p>
+
+
+                        <i class="fas fa-thumbs-up"> {{resposta.like}}</i>
+                        <i class="fas fa-thumbs-down"> {{resposta.deslike}}</i>
+                    </li>
+
+
+
+                    {% endfor %}
+
+
+
+
+                </ul>
+            </div>
+            <div class="col-md-2"></div>
         </div>
     </div>
 
 
+    {% include "app/modalResposta.html" %}
 
 
 
-
-
-
-
- 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 

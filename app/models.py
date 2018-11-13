@@ -39,7 +39,7 @@ class Pergunta(models.Model):
 
 class Resposta(models.Model):
     conteudo = models.CharField( max_length=5000)
-    data_criacao = models.DateTimeField("Criação", auto_now=True)
+    data_criacao = models.DateField("Criação", auto_now=True)
     usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
     pergunta = models.ForeignKey(Pergunta, on_delete=models.CASCADE, null=True, blank=True)
     like = models.IntegerField(blank=True, null=True, default=0)

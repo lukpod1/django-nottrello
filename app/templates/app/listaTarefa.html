@@ -19,42 +19,28 @@
     {% include "app/navbar.html" %}
 
     <!-- content -->
-    <div class="container-fluid text-left">
+    <div class="container-fluid">
         <div class="row">
 
             <div class="col-sm-1">
-                <ul class="sidebar navbar-nav bg-light">
-                    <h6 class="dropdown-header">Projetos:
+                <ul style="text-decoration: none; list-style: none;">
+                    <h6 >Projetos:
                     </h6>
-
-
                     {% for projeto in projetos %}
-                    <li><a class="nav-item" href="/projeto/{{projeto.id}}">{{projeto.nome}}</a></li>
+                    <li><a class="item-side" href="/projeto/{{projeto.id}}">{{projeto.nome}}</a></li>
+                    <hr>
                     {% endfor %}
-
-
-
                 </ul>
+
             </div>
-            <div class="col-sm-8">
+            <div class="col-md-1">
+                <hr class="side">
+            </div>
+            <div class="col-sm-7">
+
+
                 <div id="app">
-                    <br>
-                    <h3>{{ projeto.nome }}</h3>
-                    <a href="#" data-toggle="modal" data-target="#myAlertaDeleteProjeto" data-id="{{projeto.id}}">
-                        <i class="far fa-times-circle" style="color: red;"></i>
-                    </a>
-                    <a href="/projeto/editar/{{projeto.id}}">
-                        <i class="fas fa-pencil-alt"></i>
-                    </a>
-                    {% if projeto.status.id != 3 %}
-                    <a href="#" data-toggle="modal" data-target="#myAlertaConcluirProjeto" data-id="{{projeto.id}}">
-                        <i class="far fa-check-circle" style="color: green;"></i>
-                    </a>
-                    {% endif %}
 
-
-                    <br>
-                    <br>
                     <h4>Tarefas</h4>
 
                     <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
@@ -163,28 +149,40 @@
                         {% endfor %}
                     </table>
                     <div class="pagination">
-                            <span class="step-links">
-                                {% if tarefas.has_previous %}
-                                <a href="?page={{ tarefas.previous_page_number }}"><i class="fas fa-backward"></i></a>
-                                {% endif %}
-    
-                                <span class="current">
-                                    Página {{ tarefas.number }} de {{ tarefas.paginator.num_pages }}.
-                                </span>
-    
-                                {% if tarefas.has_next %}
-                                <a href="?page={{ tarefas.next_page_number }}"><i class="fas fa-forward"></i></a>
-                                {% endif %}
+                        <span class="step-links">
+                            {% if tarefas.has_previous %}
+                            <a href="?page={{ tarefas.previous_page_number }}"><i class="fas fa-backward"></i></a>
+                            {% endif %}
+
+                            <span class="current">
+                                Página {{ tarefas.number }} de {{ tarefas.paginator.num_pages }}.
                             </span>
-                        </div>
-    
+
+                            {% if tarefas.has_next %}
+                            <a href="?page={{ tarefas.next_page_number }}"><i class="fas fa-forward"></i></a>
+                            {% endif %}
+                        </span>
+                    </div>
+
 
                 </div>
-                
+
             </div>
 
 
-            <div class="col-sm-3" id='grafico' style="margin-top: 80px;">
+            <div class="col-sm-3" id='grafico'>
+                <h3>{{ projeto.nome }}</h3>
+                <a href="#" data-toggle="modal" data-target="#myAlertaDeleteProjeto" data-id="{{projeto.id}}">
+                    <i class="far fa-times-circle" style="color: red;"></i>
+                </a>
+                <a href="/projeto/editar/{{projeto.id}}">
+                    <i class="fas fa-pencil-alt"></i>
+                </a>
+                {% if projeto.status.id != 3 %}
+                <a href="#" data-toggle="modal" data-target="#myAlertaConcluirProjeto" data-id="{{projeto.id}}">
+                    <i class="far fa-check-circle" style="color: green;"></i>
+                </a>
+                {% endif %}
 
 
                 <input type="hidden" value="{{qtPendente}}" id="pendente">
@@ -270,6 +268,41 @@
             $('.ok').attr('href', '/projeto/concluir/' + id);
             $('#myAlertaConcluirProjeto').modal('show');
         });
+
+
+
+        $('#myModalProjeto').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+
+            modal.find('.modal-body input#id_usuario').val(id);
+        })
+
+        $(document).ready(function () {
+            $("#sidebar").mCustomScrollbar({
+                theme: "minimal"
+            });
+
+            $('#dismiss, .overlay').on('click', function () {
+                // hide sidebar
+                $('#sidebar').removeClass('active');
+                // hide overlay
+                $('.overlay').removeClass('active');
+            });
+
+            $('#sidebarCollapse').on('click', function () {
+                // open sidebar
+                $('#sidebar').addClass('active');
+                // fade in the overlay
+                $('.overlay').addClass('active');
+                $('.collapse.in').toggleClass('in');
+                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+            });
+        });
+
 
 
 
