@@ -22,28 +22,40 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-sm-1">
-                <ul style="text-decoration: none; list-style: none;">
-                    <h6 >Projetos:
-                    </h6>
-                    {% for projeto in projetos %}
-                    <li><a class="item-side" href="/projeto/{{projeto.id}}">{{projeto.nome}}</a></li>
-                    <hr>
-                    {% endfor %}
+            <div class="col-sm-2" id="sidebar" >
+                <br>
+                <h5>Projetos</h5>
+                <ul style="text-decoration:none; list-style:none;">
+                    {% for projeto in projetos%}
+                        <li><a href="/projeto/{{projeto.id}}" class="nav nav-item">{{projeto.nome}}</a></li>
+                    {% endfor %}    
                 </ul>
 
+
             </div>
-            <div class="col-md-1">
+            <!-- <div class="col-sm-1">
                 <hr class="side">
-            </div>
+            </div> -->
             <div class="col-sm-7">
 
 
                 <div id="app">
-
+                    <br>
                     <h4>Tarefas</h4>
+                    <div class="row">
 
-                    <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+                        <div class="col-sm-9">
+                            <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+                        </div>
+                        <div class="col-md-3">
+                            <button class="btn btn-primary" data-toggle="modal" data-projeto="{{projeto.id}}"
+                                data-target="#myModalTarefa">
+                                <i class="fas fa-plus"></i> Nova Tarefa
+                            </button>
+                        </div>
+
+                    </div>
+
                     <div class="pagination">
                         <span class="step-links">
                             {% if tarefas.has_previous %}
@@ -75,7 +87,7 @@
                             {% if tarefa.status.id == 1%}
                             <tr>
 
-                                <td style="border-left: 12px solid yellow">{{tarefa.nome}}</td>
+                                <td style="border-left: 12px solid #FFEB3B;">{{tarefa.nome}}</td>
                                 <td id="descricao">{{tarefa.descricao}}</td>
                                 <td>{{tarefa.data_criacao}}</td>
                                 <td>{{tarefa.data_vencimento}}</td>
@@ -99,7 +111,7 @@
 
                             {% elif tarefa.status.id == 2%}
                             <tr>
-                                <td style="border-left: 12px solid orange">{{tarefa.nome}}</td>
+                                <td style="border-left: 12px solid #FF5722;">{{tarefa.nome}}</td>
                                 <td id="descricao">{{tarefa.descricao}}</td>
                                 <td>{{tarefa.data_criacao}}</td>
                                 <td>{{tarefa.data_vencimento}}</td>
@@ -121,7 +133,7 @@
 
                             {% else %}
                             <tr>
-                                <td style="border-left: 12px solid green">{{tarefa.nome}}</td>
+                                <td style="border-left: 12px solid #4CAF50;">{{tarefa.nome}}</td>
                                 <td id="descricao">{{tarefa.descricao}}</td>
                                 <td>{{tarefa.data_criacao}}</td>
                                 <td>{{tarefa.data_vencimento}}</td>
@@ -171,19 +183,21 @@
 
 
             <div class="col-sm-3" id='grafico'>
-                <h3>{{ projeto.nome }}</h3>
-                <a href="#" data-toggle="modal" data-target="#myAlertaDeleteProjeto" data-id="{{projeto.id}}">
+                <br>
+                <h5>{{ projeto.nome }}
+                <a href="#" data-toggle="modal" data-target="#myAlertaDeleteProjeto" data-id="{{projeto.id}}" style="float:right;">
                     <i class="far fa-times-circle" style="color: red;"></i>
                 </a>
-                <a href="/projeto/editar/{{projeto.id}}">
+                
+                <a href="/projeto/editar/{{projeto.id}}" style="float:right">
                     <i class="fas fa-pencil-alt"></i>
                 </a>
                 {% if projeto.status.id != 3 %}
-                <a href="#" data-toggle="modal" data-target="#myAlertaConcluirProjeto" data-id="{{projeto.id}}">
+                <a href="#" data-toggle="modal" data-target="#myAlertaConcluirProjeto" data-id="{{projeto.id}}" style="float:right;">
                     <i class="far fa-check-circle" style="color: green;"></i>
                 </a>
                 {% endif %}
-
+                </h5>
 
                 <input type="hidden" value="{{qtPendente}}" id="pendente">
                 <input type="hidden" value="{{qtEmAndamento}}" id="andamento">
@@ -194,6 +208,9 @@
 
         </div>
     </div>
+
+    
+    
 
     <!--Modals-->
     {% include "app/modalTarefa.html" %}
@@ -235,7 +252,7 @@
                 datasets: [{
                     label: "Tarefas",
                     data: [qtTarefaPendente.value, qtTarefaEmAndamento.value, qtTarefaConcluido.value],
-                    backgroundColor: ["yellow", "orange", "green"],
+                    backgroundColor: ["#FFEB3B", "#FF5722", "#4CAF50"],
 
                 }],
 
@@ -279,28 +296,16 @@
             var modal = $(this)
 
             modal.find('.modal-body input#id_usuario').val(id);
-        })
+        });
 
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                theme: "minimal"
-            });
+          $('#myModalTarefa').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('projeto') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
 
-            $('#dismiss, .overlay').on('click', function () {
-                // hide sidebar
-                $('#sidebar').removeClass('active');
-                // hide overlay
-                $('.overlay').removeClass('active');
-            });
-
-            $('#sidebarCollapse').on('click', function () {
-                // open sidebar
-                $('#sidebar').addClass('active');
-                // fade in the overlay
-                $('.overlay').addClass('active');
-                $('.collapse.in').toggleClass('in');
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
+            modal.find('.modal-body input#id_projeto').val(id);
         });
 
 

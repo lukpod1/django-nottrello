@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    {% load static %}
+
+    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css">
+
+    <link rel="stylesheet" type="text/css" href="{% static '/app/style/usuarioLogadoStylecss.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/app/style/style.css'%}">
+    <title>!Trello - {{usuarioVisita.nomeUsuario}}</title>
+</head>
+
+<body style="background-color:whitesmoke">
+<!-- navbar -->
+{% include "app/navbar.html" %}
+
+<!-- content -->
+<div class="container-fluid text-left">
+    <div class="row content" style="margin:30px;  background-color:white; padding:20px; border-radius:22px;height: auto;">
+        <div class="col-sm-3" style="margin-left:40px">
+            <ul class="sidebar navbar-nav">
+                    <li>
+                        <center>
+                        {% if usuario.avatar %}
+                            <img class="avatar" src="/media/{{usuarioVisita.avatar}}">
+                            {% else %}
+                                <img class="avatar" src="{% static '/app/imgs/padrao.jpg'%}">
+                        {% endif %}
+                        </center>
+                    </li>
+
+                <li>
+                    <h4>{{usuarioVisita.nomeCompleto}}</h4>
+                    <h6>{{usuarioVisita.nomeUsuario}}</h6>
+                    
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="col-sm-8 text-left">
+            <div id="app">
+                <section id="tabs">
+                        <div class="container">
+                            
+                            <div class="row">
+                                <div class="col-md-12 ">
+                                    <nav>
+                                        <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                                            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Visão Geral</a>
+                                            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Projetos</a>
+                                        </div>
+                                    </nav>
+                                    <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+                                        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                                                <div class="row">
+                                                        {% for projeto in projetos %}
+                                                        <div class="col-sm-6" style="margin-bottom:30px;">
+                                                    
+                                                            <div class="card w-100 h-100">
+                                                                <h5 class="card-header"> <a href="#">{{projeto.nome}}</a></h5>
+                                                                <div class="card-body">
+                                                    
+                                                                    <p class="card-text">{{projeto.detalhes}}.</p>
+                                                    
+                                                                </div>
+                                                            </div>
+                                                    
+                                                    
+                                                        </div>
+                                                        {% endfor %}
+                                                    </div>
+                                                    
+                                                    <input type="hidden" value="{{qtPendente}}" id="pendente">
+                                                    <input type="hidden" value="{{qtEmAndamento}}" id="andamento">
+                                                    <input type="hidden" value="{{qtConcluido}}" id="concluido">
+                                                    <canvas class="bar" width="700" height="300">
+                                                    
+                                                    </canvas>
+                                        </div>
+                                        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                                                <div class="row">
+                                                        <div class="col-sm-9">
+                                                            <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+                                                        </div>                                                        
+                                                    </div>
+                                                    
+                                                    
+                                                    <br>
+                                                    <table class=" table table-hover" style="width:100%">
+                                                    
+                                                        {% for projeto in projetos %}
+                                                        <tbody id="myTable">
+                                                    
+                                                            <tr>
+                                                                <td>
+                                                                    <a href="#">
+                                                                        <h5>{{projeto.nome}}</h5>
+                                                                    </a>
+                                                                    <p>Concluir até: {{projeto.data_vencimento}}</p>
+                                                                    
+                                                                    <p>Status: {{projeto.status}} </p>
+                                                                    
+                                                    
+                                                                    <small>{{projeto.detalhes}}</small>
+                                                                </td>
+                                                    
+                                                                
+                                                    
+                                                            </tr>
+                                                    
+                                                        </tbody>
+                                                        {% endfor %}
+                                                    </table>
+                                        </div>
+                                       
+                                        
+                                    </div>
+                                
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--Modals-->
+{% include "app/modalProjeto.html" %}
+{% include "app/modalTarefa.html" %}
+
+
+            
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{% static '/app/scripts/usuarioLogado.js' %}"></script>
+<script>
+        $(document).ready(function () {
+            $("#myInput").on("keyup", function () {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });   
+
+         $('#myModalProjeto').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+
+            modal.find('.modal-body input#id_usuario').val(id);
+        });       
+
+</script>
+</body>
+
+</html>

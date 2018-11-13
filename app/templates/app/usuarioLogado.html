@@ -11,7 +11,7 @@
 
     <link rel="stylesheet" type="text/css" href="{% static '/app/style/usuarioLogadoStylecss.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static '/app/style/style.css'%}">
-    <title>!Trello - Seus projetos</title>
+    <title>!Trello - Meus projetos</title>
 </head>
 
 <body style="background-color:whitesmoke">
@@ -21,7 +21,7 @@
 <!-- content -->
 <div class="container-fluid text-left">
     <div class="row content" style="margin:30px;  background-color:white; padding:20px; border-radius:22px;height: auto;">
-        <div class="col-sm-3" style="margin-left:40px">
+        <div class="col-lg-3" style="margin-left:40px">
             <ul class="sidebar navbar-nav">
                     <li>
                         <center>
@@ -42,13 +42,13 @@
 
         </div>
 
-        <div class="col-sm-8 text-left">
+        <div class="col-md-8 text-left">
             <div id="app">
                 <section id="tabs">
                         <div class="container">
                             
                             <div class="row">
-                                <div class="col-md-12 ">
+                                <div class="col-lg-12 ">
                                     <nav>
                                         <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
                                             <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Visão Geral</a>
@@ -88,7 +88,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="{% static '/app/scripts/usuarioLogado.js' %}"></script>
-<script type="text/javascript" src="{% static '/app/scripts/main.js' %}"></script>
 <script>
         $(document).ready(function () {
             $("#myInput").on("keyup", function () {
@@ -97,11 +96,17 @@
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        });      
-        
+        });   
 
+         $('#myModalProjeto').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
 
-
+            modal.find('.modal-body input#id_usuario').val(id);
+        });       
 
 </script>
 </body>

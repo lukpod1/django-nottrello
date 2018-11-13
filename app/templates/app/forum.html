@@ -27,11 +27,22 @@
                 <p>Aqui você encontra as dúvidas de toda comunidade sobre qualquer assunto.</p>
                 <p>Compartilhe seu conhecimento!</p>
 
-                <a href="#" class="btn btn-success" data-toggle="modal" data-target="#myModalPergunta">Adicionar
-                    pergunta</a>
+                
                 <br>
-                <br>
-                <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+                
+                <div class="row">
+
+                        <div class="col-sm-9">
+                            <input class="form-control" id="myInput" type="text" placeholder="Pesquisar..">
+                        </div>
+                        <div class="col-md-3">
+                                <a href="#" class="btn btn-success" data-id="{{usuario.id}}" data-toggle="modal" data-target="#myModalPergunta"><i class="fas fa-plus"></i> Nova Pergunta</a>
+                               
+                            
+                        </div>
+
+                    </div>
+                
 
                 <br>
 
@@ -45,13 +56,13 @@
                         <td>
                             
                             <a href="/forum/pergunta/{{pergunta.id}}" class="list-group-item-action ">
-                                <div class="d-flex w-100 justify-content-end">
+                                <div class="d-flex w-100 justify-content">
                                     <h5 class="mb-2">{{pergunta.titulo}}</h5>
                                     
 
                                 </div>
 
-                                <div class=" w-100 justify-content-end">
+                                <div class=" w-100 justify-content">
                                     <p class="mb-1">{{pergunta.detalhesPergunta}}</p>
 
                                 </div>
@@ -97,7 +108,7 @@
 
     {% include "app/modalPergunta.html" %}
     {% include "app/modalProjeto.html" %}
-    {% include "app/modalTarefa.html" %}
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -110,7 +121,27 @@
                     $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
                 });
             });
-        });  
+        }); 
+
+         $('#myModalProjeto').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+
+            modal.find('.modal-body input#id_usuario').val(id);
+        }); 
+
+         $('#myModalPergunta').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+
+            modal.find('.modal-body input#id_usuario').val(id);
+        });
     </script>
 
 </body>

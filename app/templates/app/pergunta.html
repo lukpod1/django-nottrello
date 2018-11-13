@@ -46,7 +46,7 @@
 
                     </li>
                 </ul>
-                <a href="#" data-toggle="modal" data-target="#myModalResposta">Responder</a>
+                <a href="#" data-toggle="modal" data-pergunta="{{pergunta.id}}" data-id="{{usuario.id}}" data-target="#myModalResposta">Responder</a>
                 <hr>
                 <span class="badge badge-primary badge-pill">{{qtResposta}} Respostas</span>
                 <hr>
@@ -55,18 +55,26 @@
 
                     <li class="list-group-item list-group-item-light">
                         <div class="d-flex w-100 justify-content-between">
-                            <p class="mb-1"><small><img class="avatar" src="/media/{{resposta.usuario.avatar}}" style="width:30px;">
+                            {% if resposta.usuario.id != usuario.id %}
+                            <small> <a href="/usuario/{{resposta.usuario.id}}"> <img class="avatar" src="/media/{{resposta.usuario.avatar}}" style="width:30px;">
                                     {{resposta.usuario}}
-                                </small></p>
+                                </a>
+                                </small>
+                            {% else %}  
+                            <small> <a href="/usuario/logado"> <img class="avatar" src="/media/{{resposta.usuario.avatar}}" style="width:30px;">
+                                {{resposta.usuario}}
+                            </a>
+                            </small>
+                            {% endif %}
                             <p>{{resposta.data_criacao}}</p>
                         </div>
 
 
                         <p>{{resposta.conteudo}}</p>
-
-
-                        <i class="fas fa-thumbs-up"> {{resposta.like}}</i>
-                        <i class="fas fa-thumbs-down"> {{resposta.deslike}}</i>
+                        <a href="/resposta/curtir/{{resposta.id}}"><i class="fas fa-thumbs-up"> {{resposta.like}}</i></a>
+                        <a href="/resposta/descurtir/{{resposta.id}}"><i class="fas fa-thumbs-down"> {{resposta.deslike}}</i></a>
+                        
+                        
                     </li>
 
 
@@ -92,5 +100,19 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>
+<script>
+     $('#myModalResposta').on('show.bs.modal', function (event) {
+            var button = $(event.relatedTarget) // Button that triggered the modal
+            var id = button.data('id') // Extract info from data-* attributes
+            var pergunta = button.data('pergunta')
+            // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+            // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+            var modal = $(this)
+
+            modal.find('.modal-body input#id_usuario').val(id)
+            modal.find('.modal-body input#id_pergunta').val(pergunta)
+        });
+
+</script>
 
 </html>

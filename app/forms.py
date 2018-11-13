@@ -60,7 +60,7 @@ class TarefaForm(forms.ModelForm):
             'data_vencimento': forms.DateInput(attrs={'placeholder': 'dd/mm/AAAA', 'class': 'form-control', 'id': 'data_vencimento'}),
             'descricao': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
             'status' : forms.Select(attrs={'class': 'form-control'}),
-            'projeto' : forms.Select(attrs={'class': 'form-control'}),
+            'projeto' : forms.HiddenInput(attrs={'class': 'form-control'}),
 
         }
 
@@ -85,6 +85,7 @@ class PerguntaForm(forms.ModelForm):
         widgets = {
             'titulo': forms.TextInput(attrs={'class': 'form-control', 'id': 'titulo'}),            
             'detalhesPergunta': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}),
+            'usuario':forms.HiddenInput(),
 
 
         }     
@@ -96,8 +97,8 @@ class RespostaForm(forms.ModelForm):
         fields = {'conteudo', 'usuario', 'pergunta'}
         widgets = {
             'conteudo': forms.Textarea(attrs={'class': 'form-control', 'rows': '5'}), 
-            'usuario': forms.Select(attrs={'class': 'form-control' }),  
-            'pergunta': forms.Select(attrs={'class': 'form-control'}),   
+            'usuario': forms.HiddenInput(attrs={'class': 'form-control' }),
+            'pergunta': forms.HiddenInput(attrs={'class': 'form-control'}),
                    
            
         }           

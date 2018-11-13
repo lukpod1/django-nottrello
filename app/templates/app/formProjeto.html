@@ -11,30 +11,12 @@
     <link rel="stylesheet" type="text/css" href="/style/style.css">
     <link rel="stylesheet" type="text/css" href="{% static '/app//style/usuarioLogadoStylecss.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static '/app//style/style.css'%}">
-    <title>Insert title here</title>
+    <title>Nottrello - Editar {{projeto.nome}}</title>
 </head>
 
 <body>
-    <div>
-        <nav class="navbar navbar-expand-lg navbar navbar-dark" style="background: #17baef;">
-            <h1 class="logo float-left">
-
-                <img src="{% static '/app/imgs/logo1.jpg'%}" class="logo">
-
-            </h1>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
-                aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
-                <div class="navbar-nav">                    
-                    <a class="nav-item nav-link" href="/usuario/logout">Sair</a>
-                </div>
-            </div>
-        </nav>
-
-
-    </div>
+    <!-- navbar -->
+    {% include "app/navbarEdit.html" %}
 
     <!-- content -->
     <div class="container-fluid text-center">
@@ -42,8 +24,9 @@
 
         <div class="col-lg-10 col-xl-9 mx-auto text-left">
             <div id="app">
-                <h3>{{projeto.nome}}</h3>
-                <h4>Projeto</h4>
+                <br>
+                <h3>Editar {{projeto.nome}}</h3>
+                
                 <form method="post">
                     <div class="form-group">
                         {% csrf_token %}
