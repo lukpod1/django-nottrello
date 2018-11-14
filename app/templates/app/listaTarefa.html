@@ -22,13 +22,13 @@
     <div class="container-fluid">
         <div class="row">
 
-            <div class="col-sm-2" id="sidebar" >
+            <div class="col-sm-2" id="sidebar">
                 <br>
                 <h5>Projetos</h5>
                 <ul style="text-decoration:none; list-style:none;">
                     {% for projeto in projetos%}
-                        <li><a href="/projeto/{{projeto.id}}" class="nav nav-item">{{projeto.nome}}</a></li>
-                    {% endfor %}    
+                    <li><a href="/projeto/{{projeto.id}}" class="nav nav-item">{{projeto.nome}}</a></li>
+                    {% endfor %}
                 </ul>
 
 
@@ -185,18 +185,18 @@
             <div class="col-sm-3" id='grafico'>
                 <br>
                 <h5>{{ projeto.nome }}
-                <a href="#" data-toggle="modal" data-target="#myAlertaDeleteProjeto" data-id="{{projeto.id}}" style="float:right;">
-                    <i class="far fa-times-circle" style="color: red;"></i>
-                </a>
-                
-                <a href="/projeto/editar/{{projeto.id}}" style="float:right">
-                    <i class="fas fa-pencil-alt"></i>
-                </a>
-                {% if projeto.status.id != 3 %}
-                <a href="#" data-toggle="modal" data-target="#myAlertaConcluirProjeto" data-id="{{projeto.id}}" style="float:right;">
-                    <i class="far fa-check-circle" style="color: green;"></i>
-                </a>
-                {% endif %}
+                    <a href="/projeto/editar/{{projeto.id}}" style="float:right">
+                        <i class="fas fa-pencil-alt"></i>
+                    </a>
+                    <a href="#" data-toggle="modal" data-target="#myAlertaDeleteProjeto" data-id="{{projeto.id}}" style="float:right;">
+                        <i class="far fa-times-circle" style="color: red;"></i>
+                    </a>
+                    {% if projeto.status.id != 3 %}
+                    <a href="#" data-toggle="modal" data-target="#myAlertaConcluirProjeto" data-id="{{projeto.id}}"
+                        style="float:right;">
+                        <i class="far fa-check-circle" style="color: green;"></i>
+                    </a>
+                    {% endif %}
                 </h5>
 
                 <input type="hidden" value="{{qtPendente}}" id="pendente">
@@ -209,8 +209,8 @@
         </div>
     </div>
 
-    
-    
+
+
 
     <!--Modals-->
     {% include "app/modalTarefa.html" %}
@@ -298,7 +298,7 @@
             modal.find('.modal-body input#id_usuario').val(id);
         });
 
-          $('#myModalTarefa').on('show.bs.modal', function (event) {
+        $('#myModalTarefa').on('show.bs.modal', function (event) {
             var button = $(event.relatedTarget) // Button that triggered the modal
             var id = button.data('projeto') // Extract info from data-* attributes
             // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).

@@ -21,6 +21,14 @@ def entrar(request):
 
     return render(request, 'app/formLogin.html', {'formLogin': form})
 
+def logar(request):
+    usuarioLogado = Usuario.objects.get(nomeUsuario=request.POST['nomeUsuario'])
+    if usuarioLogado.senha == request.POST['senha']:
+        request.session['usuario_id'] = usuarioLogado.id
+        return redirect('/usuario/logado/')
+    else:
+        return redirect('/usuario/entrar')
+
 
 def pergunta(request, pk):
     data= {}
@@ -69,15 +77,6 @@ def descurtir(request, pk):
     resposta.deslike +=1
     resposta.save()
     return redirect('/forum/pergunta/' + str(resposta.pergunta.id))
-
-def logar(request):
-    usuarioLogado = Usuario.objects.get(nomeUsuario=request.POST['nomeUsuario'])
-    if usuarioLogado.senha == request.POST['senha']:
-        request.session['usuario_id'] = usuarioLogado.id
-        return redirect('/usuario/logado/')
-    else:
-        return redirect('/usuario/entrar')
-
 
 def logout(request):
     try:

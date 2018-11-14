@@ -69,7 +69,7 @@ li > a:hover{
 }
 
 #sidebar li a:hover{
-    background-color: rgb(41, 49, 58);
+    background-color: #3f9ebd;
     color: white;
    
 }
